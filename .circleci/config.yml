@@ -53,6 +53,11 @@ jobs:
       - checkout
       - restore_cache:
           keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # Fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - restore_cache:
+          keys:
             - node-dependencies-3.36.0
             - node-dependencies-
       - node/install
@@ -71,9 +76,13 @@ jobs:
             sudo apt-get update
             sudo apt-get install postgresql-client
       - run:
-          name: Install project dependencies in order to run tge migrations
+          name: Install project dependencies in order to run the migrations
           command: |
             make circleci/setup
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          paths:
+            - /home/circleci/.cache/pip
       - deploy:
           name: deploy
           command: |
