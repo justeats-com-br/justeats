@@ -1,0 +1,52 @@
+Resources:
+  RestaurantHubCloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    DeletionPolicy: Delete
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        PriceClass: PriceClass_100
+        HttpVersion: http2
+        Comment: Distribution for Restaurant Hub
+        Origins:
+          - Id: RestaurantHubGateway
+            DomainName: !Select [ 2, !Split [ "/", !GetAtt RestaurantHubLambdaFunctionUrl.FunctionUrl ] ]
+            OriginPath: ''
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols: [ TLSv1, TLSv1.1, TLSv1.2 ]
+        DefaultCacheBehavior:
+          TargetOriginId: RestaurantHubGateway
+          ViewerProtocolPolicy: redirect-to-https
+          Compress: true
+          DefaultTTL: 0
+          AllowedMethods:
+            - HEAD
+            - DELETE
+            - POST
+            - GET
+            - OPTIONS
+            - PUT
+            - PATCH
+          CachedMethods:
+            - HEAD
+            - OPTIONS
+            - GET
+          ForwardedValues:
+            QueryString: true
+            Headers:
+              - Accept
+              - Authorization
+            Cookies:
+              Forward: whitelist
+              WhitelistedNames:
+                - 'access_token'
+                - 'refresh_token'
+        Aliases:
+          - ${env:RESTAURANT_HUB_CUSTOM_DOMAIN}
+        ViewerCertificate:
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2019
+          AcmCertificateArn: ${env:RESTAURANT_HUB_ACM_CERTIFICATE_ARN}

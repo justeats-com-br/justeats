@@ -1,0 +1,261 @@
+# Portuguese translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-02-06 21:29-0300\n"
+"PO-Revision-Date: 2023-12-25 11:22-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt\n"
+"Language-Team: pt <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: src/infrastructure/common/message_mapper.py:43
+#: src/infrastructure/common/message_mapper.py:45
+msgid "Required field"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:47
+msgid "Invalid recipe"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:49
+msgid "Invalid value"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:51
+msgid "Invalid prompt execution"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:53
+msgid "Maximum length exceeded"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:55
+msgid "Minimum length not reached"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:57
+msgid "Invalid email"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:59
+msgid "Email already in use"
+msgstr ""
+
+#: src/restaurant_hub/infrastructure/auth.py:30
+msgid "Access token not provided"
+msgstr ""
+
+#: src/restaurant_hub/templates/base/logged.html:52
+msgid "Close sidebar"
+msgstr ""
+
+#: src/restaurant_hub/templates/base/logged.html:135
+msgid "Expand / collapse sidebar"
+msgstr ""
+
+#: src/restaurant_hub/templates/base/logged.html:165
+msgid "Open sidebar"
+msgstr ""
+
+#: src/restaurant_hub/templates/base/logged.html:189
+msgid "My profile"
+msgstr ""
+
+#: src/restaurant_hub/templates/base/logged.html:212
+msgid "Settings"
+msgstr ""
+
+#: src/restaurant_hub/templates/base/logged.html:218
+msgid "Sign Out"
+msgstr ""
+
+#~ msgid "All recipes"
+#~ msgstr ""
+
+#~ msgid "name"
+#~ msgstr ""
+
+#~ msgid "version"
+#~ msgstr ""
+
+#~ msgid "created at"
+#~ msgstr ""
+
+#~ msgid "previous"
+#~ msgstr ""
+
+#~ msgid "next"
+#~ msgstr ""
+
+#~ msgid "showing"
+#~ msgstr ""
+
+#~ msgid "to"
+#~ msgstr ""
+
+#~ msgid "of"
+#~ msgstr ""
+
+#~ msgid "results"
+#~ msgstr ""
+
+#~ msgid "No recipes found"
+#~ msgstr ""
+
+#~ msgid "Try changing the filters or adding a new recipe"
+#~ msgstr ""
+
+#~ msgid "Close sidebar"
+#~ msgstr ""
+
+#~ msgid "Expand / collapse sidebar"
+#~ msgstr ""
+
+#~ msgid "Open sidebar"
+#~ msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr ""
+
+#~ msgid "Sign Out"
+#~ msgstr ""
+
+#~ msgid "Recipes"
+#~ msgstr ""
+
+#~ msgid "Price not found"
+#~ msgstr ""
+
+#~ msgid "Operation not allowed"
+#~ msgstr ""
+
+#~ msgid "Subscription not found"
+#~ msgstr ""
+
+#~ msgid "Access token not provided"
+#~ msgstr ""
+
+#~ msgid "Not authorized"
+#~ msgstr ""
+
+#~ msgid "Dataset not found"
+#~ msgstr ""
+
+#~ msgid "Recipe version not found"
+#~ msgstr ""
+
+#~ msgid "Prompt execution not found"
+#~ msgstr ""
+
+#~ msgid "Invalid input"
+#~ msgstr ""
+
+#~ msgid "Recipe not found"
+#~ msgstr ""
+
+#~ msgid "Invalid data"
+#~ msgstr ""
+
+#~ msgid "Invalid api secret"
+#~ msgstr ""
+
+#~ msgid "First login required"
+#~ msgstr ""
+
+#~ msgid "Invalid access token"
+#~ msgstr ""
+
+#~ msgid "Invalid refresh token"
+#~ msgstr ""
+
+#~ msgid "User not found"
+#~ msgstr ""
+
+#~ msgid "Insufficient password strength"
+#~ msgstr ""
+
+#~ msgid "Invalid verification code"
+#~ msgstr ""
+
+#~ msgid "Invalid password"
+#~ msgstr ""
+
+#~ msgid "Wrong credentials"
+#~ msgstr ""
+
+#~ msgid "Loading"
+#~ msgstr ""
+
+#~ msgid "Sign in"
+#~ msgstr ""
+
+#~ msgid "Welcome"
+#~ msgstr ""
+
+#~ msgid "Email"
+#~ msgstr ""
+
+#~ msgid "Password"
+#~ msgstr ""
+
+#~ msgid "Forgot Password?"
+#~ msgstr ""
+
+#~ msgid "Sign In"
+#~ msgstr ""
+
+#~ msgid "Don't you have an account?"
+#~ msgstr ""
+
+#~ msgid "Sign Up"
+#~ msgstr ""
+
+#~ msgid "Invalid authorization code"
+#~ msgstr ""
+
+#~ msgid "Job Applications"
+#~ msgstr ""
+
+#~ msgid "Upload"
+#~ msgstr ""
+
+#~ msgid "All job applications"
+#~ msgstr ""
+
+#~ msgid "title"
+#~ msgstr ""
+
+#~ msgid "company name"
+#~ msgstr ""
+
+#~ msgid "source"
+#~ msgstr ""
+
+#~ msgid "applied at"
+#~ msgstr ""
+
+#~ msgid "No job applications found"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We are working hard to find you"
+#~ " the best job opportunities. Please "
+#~ "check back later."
+#~ msgstr ""
+
+#~ msgid "Success"
+#~ msgstr ""
+
+#~ msgid "Your resume has been uploaded successfully."
+#~ msgstr ""
+

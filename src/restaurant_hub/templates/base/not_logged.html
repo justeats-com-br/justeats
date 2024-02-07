@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block page_title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="./static/css/vendors/flatpickr.min.css" rel="stylesheet">
+    <link href="./static/style.css" rel="stylesheet">
+    <style>
+        [data-loading] {
+          display: none;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">
+
+<script>
+        if (localStorage.getItem('sidebar-expanded') == 'true') {
+            document.querySelector('body').classList.add('sidebar-expanded');
+        } else {
+            document.querySelector('body').classList.remove('sidebar-expanded');
+        }
+</script>
+
+<main class="bg-white dark:bg-slate-900" hx-ext="loading-states, response-targets">
+    {% block main_content %}{% endblock %}
+</main>
+
+<script src="./static/js/htmx.min.js"></script>
+<script src="./static/js/loading-states.min.js"></script>
+<script src="./static/js/response-targets.min.js"></script>
+<script src="./static/js/vendors/alpinejs.min.js" defer></script>
+<script src="./static/js/main.js"></script>
+
+</body>
+
+</html>

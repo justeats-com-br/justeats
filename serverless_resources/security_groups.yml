@@ -1,0 +1,12 @@
+Resources:
+  lambdaSg:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: 'Lambda functions security group'
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          CidrIp: '0.0.0.0/0'
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: '0.0.0.0/0'
+      VpcId: ${env:VPC_ID}

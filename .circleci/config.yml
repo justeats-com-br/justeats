@@ -1,0 +1,73 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.9.0
+
+jobs:
+  tests:
+    docker:
+      - image: cimg/python:3.9.11
+      - image: circleci/postgres:12.7-ram
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: justeats
+          POSTGRES_PASSWORD: postgres
+    parallelism: 1
+    steps:
+      - checkout
+      - run:
+          name: configure pt br locale
+          command: |
+            sudo locale-gen pt_BR.UTF-8 \
+            && sudo locale-gen pt pt_BR pt_BR.UTF-8 \
+            && sudo dpkg-reconfigure locales
+            export LC_ALL="pt_BR.UTF-8"
+            export LC_CTYPE="pt_BR.UTF-8"
+      - run:
+          name: run tests
+          command: |
+            mkdir -p /home/circleci/workspace
+            mkdir test-results
+            make circleci/setup
+            make circleci/db/migrate
+            make circleci/test
+      - store_test_results:
+          path: test-results
+
+  deploy:
+    docker:
+      - image: cimg/python:3.9.11
+    steps:
+      - checkout
+      - node/install
+      - node/install-npm
+      - run:
+          name: Install Serverless CLI and dependencies
+          command: |
+            npm i -g serverless@3.36.0
+      - run:
+          name: Install Postgres client dependency
+          command: |
+            sudo apt-get update
+            sudo apt-get install postgresql-client
+      - run:
+          name: Install project dependencies in order to run tge migrations
+          command: |
+            make circleci/setup
+      - deploy:
+          name: deploy
+          command: |
+            ./deploy.sh
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "tests"
+      - "deploy":
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - "tests"

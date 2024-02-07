@@ -1,0 +1,90 @@
+service: easyapply
+
+provider:
+  name: aws
+  runtime: python3.9
+  versionFunctions: false
+  region: us-east-1
+  layers:
+    - { Ref: DependenciesLambdaLayer }
+  environment:
+    ENVIRONMENT: ${env:ENVIRONMENT}
+    STAGE: ${env:STAGE}
+    DB_HOST: ${env:DB_HOST}
+    DB_PORT: ${env:DB_PORT}
+    DB_NAME: ${env:DB_NAME}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - cognito-idp:*
+        - sqs:*
+        - apigateway:*
+        - ec2:*
+        - iam:*
+        - s3:*
+        - sns:*
+        - ses:*
+        - cloudformation:*
+        - lambda:*
+        - cloudwatch:*
+        - logs:*
+        - events:*
+      Resource: '*'
+  vpc:
+    securityGroupIds:
+      - Ref: lambdaSg
+    subnetIds:
+      - ${env:SUBNET_A}
+      - ${env:SUBNET_B}
+
+resources:
+  - ${file(serverless_resources/security_groups.yml)}
+  - ${file(serverless_resources/cloud_front.yml)}
+
+package:
+  exclude:
+    - .cache/**
+    - .git/**
+    - .env/**
+    - test/**
+    - alembic/**
+    - alembic.ini
+    - docker-compose.yml
+    - Makefile
+    - README.md
+    - requirements.txt
+    - .serverless/
+    - layers/**
+    - _psycopg.cpython-39-x86_64-linux-gnu.so
+    - babel.cfg
+    - deploy.sh
+    - Dockerfile
+    - LICENSE
+    - pytest.ini
+    - serverless.yml
+    - .coverage
+    - postgres-data/
+    - .circleci/**
+
+functions:
+  restaurant_hub:
+    timeout: 10
+    handler: src/restaurant_hub/functions/flask.handle
+    memorySize: 512
+    url:
+      cors:
+        allowedHeaders:
+          - Content-Type
+          - Authorization
+          - X-Amz-Date
+          - X-Amz-Security-Token
+          - X-Amz-User-Agent
+        allowCredentials: true
+
+layers:
+  dependencies:
+    path: layers/dependenciesLayer
+    name: ${opt:stage, self:provider.stage}-dependenciesLayer
