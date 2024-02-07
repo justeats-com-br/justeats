@@ -12,7 +12,7 @@ ecossistema equitativo para todos os stakeholders envolvidos.
 
 ### TL/DR
 
-Esse vai executar a aplicação localmente em um container Docker juntamente com todas suas dependências.
+Esse comando vai executar a aplicação localmente em um container Docker juntamente com todas suas dependências.
 
 ```
 make dev/run
