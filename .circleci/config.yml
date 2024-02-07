@@ -53,7 +53,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - node-dependencies-{{ checksum "package-lock.json" }}
+            - node-dependencies-3.36.0
             - node-dependencies-
       - node/install
       - node/install-npm
@@ -62,7 +62,7 @@ jobs:
           command: |
             npm i -g serverless@3.36.0
       - save_cache:
-          key: node-dependencies-{{ checksum "package-lock.json" }}
+          key: node-dependencies-3.36.0
           paths:
             - /home/circleci/.npm
       - run:
