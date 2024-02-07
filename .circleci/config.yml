@@ -15,6 +15,11 @@ jobs:
     parallelism: 1
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # Fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run:
           name: configure pt br locale
           command: |
@@ -24,11 +29,18 @@ jobs:
             export LC_ALL="pt_BR.UTF-8"
             export LC_CTYPE="pt_BR.UTF-8"
       - run:
+          name: Install project dependencies
+          command: |
+            make circleci/setup
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          paths:
+            - /home/circleci/.cache/pip
+      - run:
           name: run tests
           command: |
             mkdir -p /home/circleci/workspace
             mkdir test-results
-            make circleci/setup
             make circleci/db/migrate
             make circleci/test
       - store_test_results:
@@ -39,12 +51,20 @@ jobs:
       - image: cimg/python:3.9.11
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - node-dependencies-{{ checksum "package-lock.json" }}
+            - node-dependencies-
       - node/install
       - node/install-npm
       - run:
           name: Install Serverless CLI and dependencies
           command: |
             npm i -g serverless@3.36.0
+      - save_cache:
+          key: node-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - /home/circleci/.npm
       - run:
           name: Install Postgres client dependency
           command: |
