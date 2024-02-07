@@ -1,9 +1,7 @@
-import os
-
 import boto3
 import httpretty
 import pytest
-from moto import mock_cognitoidp, mock_sqs, mock_sns
+from moto import mock_sqs, mock_sns
 
 from src.infrastructure.common.config import get_key
 from src.infrastructure.database.connection_factory import Session
@@ -16,30 +14,6 @@ class IntegrationTest(object):
 
         Session().rollback()
         Session.remove()
-
-    @pytest.yield_fixture(scope="function", autouse=True)
-    def cognito_client(self):
-        idp = mock_cognitoidp()
-        idp.start()
-
-        cognito_client = boto3.client('cognito-idp',
-                                      region_name=get_key('AWS_REGION'),
-                                      aws_access_key_id=get_key('AWS_ACCESS_KEY_ID'),
-                                      aws_secret_access_key=get_key('AWS_SECRET_ACCESS_KEY'),
-                                      aws_session_token=get_key('AWS_SESSION_TOKEN'))
-
-        # configure default users pool
-        user_pool = cognito_client.create_user_pool(PoolName='users')
-        os.environ['COGNITO_USER_POOL_ID'] = user_pool['UserPool']['Id']
-        user_pool_client = cognito_client.create_user_pool_client(UserPoolId=user_pool['UserPool']['Id'],
-                                                                  ClientName='test')
-        os.environ['COGNITO_CLIENT_ID'] = user_pool_client['UserPoolClient']['ClientId']
-
-        yield cognito_client
-
-        del os.environ['COGNITO_USER_POOL_ID']
-        del os.environ['COGNITO_CLIENT_ID']
-        idp.stop()
 
     @pytest.fixture(autouse=True)
     def sqs_client(self):

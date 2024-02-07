@@ -20,7 +20,4 @@ def inject_environment():
     return dict(ENVIRONMENT=ENVIRONMENT)
 
 
-from . import home_controller
-from . import users_controller
-from . import job_applications_controller
-from . import resumes_controller
+from . import index_controller
