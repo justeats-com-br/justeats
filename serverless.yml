@@ -70,7 +70,7 @@ package:
     - .circleci/**
 
 functions:
-  restaurant_hub:
+  restauranthub:
     timeout: 10
     handler: src/restaurant_hub/functions/flask.handle
     memorySize: 512

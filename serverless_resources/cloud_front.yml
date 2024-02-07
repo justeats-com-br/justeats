@@ -10,7 +10,7 @@ Resources:
         Comment: Distribution for Restaurant Hub
         Origins:
           - Id: RestaurantHubGateway
-            DomainName: !Select [ 2, !Split [ "/", !GetAtt RestaurantHubLambdaFunctionUrl.FunctionUrl ] ]
+            DomainName: !Select [ 2, !Split [ "/", !GetAtt RestauranthubLambdaFunctionUrl.FunctionUrl ] ]
             OriginPath: ''
             CustomOriginConfig:
               HTTPPort: 80
