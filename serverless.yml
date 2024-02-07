@@ -1,4 +1,4 @@
-service: easyapply
+service: justeats
 
 provider:
   name: aws
