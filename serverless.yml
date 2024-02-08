@@ -17,6 +17,7 @@ provider:
     DB_PASSWORD: ${env:DB_PASSWORD}
     COGNITO_USER_POOL_ID: { Ref: UserPool }
     COGNITO_CLIENT_ID: { Ref: UserClient }
+    DOMAIN_EVENTS_TOPIC: { Ref: DomainEventsTopic }
 
   iamRoleStatements:
     - Effect: Allow

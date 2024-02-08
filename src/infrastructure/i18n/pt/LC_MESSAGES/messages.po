@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-06 22:15-0300\n"
+"POT-Creation-Date: 2024-02-07 22:37-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -77,6 +77,41 @@ msgstr ""
 
 #: src/restaurant_hub/templates/base/logged.html:218
 msgid "Sign Out"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:25
+#: src/restaurant_hub/templates/sign_up/sign_up.html:3
+msgid "Sign up"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/sign_up.html:6
+msgid ""
+"Create your\n"
+"    account"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/sign_up.html:14
+msgid "Loading"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/sign_up.html:27
+msgid "Already have an account?"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/sign_up.html:29
+msgid "Sign in"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:5
+msgid "Email"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
+msgid "Name"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:17
+msgid "Password"
 msgstr ""
 
 #~ msgid "All recipes"

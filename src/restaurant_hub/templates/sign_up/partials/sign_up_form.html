@@ -1,0 +1,31 @@
+<form hx-post="/sign-up" hx-target-400="this" hx-swap="outerHTML" onhtmx:success="handleSuccess(event)">
+    {% from "partials/input_message.html" import input_message %}
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-1" for="email">{{_('Email')}}</label>
+            <input id="email" name="email" value="{{email}}" class="form-input w-full"
+                   type="email"/>
+            {{input_message(messages, 'email')}}
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="name">{{_('Name')}}</label>
+            <input id="name" name="name" value="{{name}}" class="form-input w-full"/>
+            {{input_message(messages, 'name')}}
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1"
+                   for="password">{{_('Password')}}</label>
+            <input id="password" name="password" value="{{password}}" class="form-input w-full"
+                   type="password"
+                   autocomplete="on"/>
+            {{input_message(messages, 'password')}}
+        </div>
+    </div>
+    <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white mt-4 w-full" type="submit" data-loading-disable>
+        {{_('Sign up')}}
+    </button>
+
+    {% for message in (messages | rejectattr('target', 'in', ['email', 'name', 'password'])) %}
+    <p class="mt-2 text-sm text-red-500">{{message.message}}</p>
+    {% endfor %}
+</form>
