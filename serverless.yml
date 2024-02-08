@@ -46,6 +46,7 @@ resources:
   - ${file(serverless_resources/security_groups.yml)}
   - ${file(serverless_resources/cloud_front.yml)}
   - ${file(serverless_resources/cognito.yml)}
+  - ${file(serverless_resources/sns.yml)}
 
 package:
   exclude:

@@ -1,0 +1,5 @@
+Resources:
+  DomainEventsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: ${opt:stage, self:provider.stage}-justeats-domain-events
