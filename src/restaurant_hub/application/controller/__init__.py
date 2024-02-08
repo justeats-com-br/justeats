@@ -22,3 +22,4 @@ def inject_environment():
 
 from . import index_controller
 from . import sign_up_controller
+from . import sign_in_controller

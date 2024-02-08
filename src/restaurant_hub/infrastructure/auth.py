@@ -4,17 +4,22 @@ from flask import request, render_template
 from flask_babel import gettext
 
 from src.infrastructure.common.message import MessageCategory, Message
+from src.users.domain.model.user_repository import UserRepository
 from src.users.domain.service.auth_service import AuthService
 
 
-def current_user_id():
+def current_user():
     access_token = request.cookies.get('access_token')
     if not access_token:
         raise Exception('Access token not provided')
 
-    auth_result = AuthService().load_id_by_token(access_token)
+    auth_result = AuthService().load_username_by_token(access_token)
     if auth_result.is_right():
-        return auth_result.right()
+        email = auth_result.right()
+        user = UserRepository().load_by_email(email)
+        if not user:
+            raise Exception('User not found')
+        return user
     else:
         raise Exception('Invalid access token')
 

@@ -1,0 +1,32 @@
+{% extends 'base/form_not_logged.html' %}
+
+{% block page_title %}{{_('Sign in')}}{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{_('Welcome')}}!</h1>
+
+<div class="relative">
+    <!-- loading overlay -->
+    <div class="absolute bg-white bg-opacity-60 z-10 h-full w-full flex items-center justify-center"
+         data-loading="flex">
+        <div class="flex items-center">
+            <span class="text-3xl mr-4">{{_('Loading')}}</span>
+            <svg class="animate-spin w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
+                <path d="M8 16a7.928 7.928 0 01-3.428-.77l.857-1.807A6.006 6.006 0 0014 8c0-3.309-2.691-6-6-6a6.006 6.006 0 00-5.422 8.572l-1.806.859A7.929 7.929 0 010 8c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Form -->
+    {% include 'sign_in/partials/sign_in_form.html' %}
+
+    <!-- Footer -->
+    <div class="pt-5 mt-6 border-t border-slate-200 dark:border-slate-700">
+        <div class="text-sm">
+            {{_("Don't you have an account?")}} <a
+                class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                href="sign-up">{{_('Sign Up')}}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

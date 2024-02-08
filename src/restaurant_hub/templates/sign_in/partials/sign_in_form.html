@@ -1,0 +1,29 @@
+<form hx-post="/sign-in" hx-swap="outerHTML">
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-1" for="email">{{_('Email')}}</label>
+            <input id="email" name="email" value="{{email}}" class="form-input w-full"
+                   type="email"/>
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="password">{{_('Password')}}</label>
+            <input id="password" name="password" value="{{password}}" class="form-input w-full"
+                   type="password"
+                   autocomplete="on"/>
+        </div>
+    </div>
+    <div class="flex items-center justify-between mt-6">
+        <div class="mr-1">
+            <a class="text-sm underline hover:no-underline" href="reset-password.html">
+                {{_('Forgot password?')}}
+            </a>
+        </div>
+        <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3" data-loading-disable>
+            {{_('Sign in')}}
+        </button>
+    </div>
+
+    {% for message in messages %}
+    <p class="mt-2 text-sm text-red-500">{{message.message}}</p>
+    {% endfor %}
+</form>

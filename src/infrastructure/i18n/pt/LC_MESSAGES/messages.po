@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-07 22:37-0300\n"
+"POT-Creation-Date: 2024-02-08 19:34-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Email already in use"
 msgstr ""
 
-#: src/restaurant_hub/infrastructure/auth.py:30
+#: src/restaurant_hub/infrastructure/auth.py:35
 msgid "Access token not provided"
 msgstr ""
 
@@ -79,6 +79,43 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
+#: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:22
+#: src/restaurant_hub/templates/sign_in/sign_in.html:3
+#: src/restaurant_hub/templates/sign_up/sign_up.html:29
+msgid "Sign in"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/sign_in.html:6
+msgid "Welcome"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/sign_in.html:13
+#: src/restaurant_hub/templates/sign_up/sign_up.html:14
+msgid "Loading"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/sign_in.html:26
+msgid "Don't you have an account?"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/sign_in.html:28
+msgid "Sign Up"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:4
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:5
+msgid "Email"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:9
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:17
+msgid "Password"
+msgstr ""
+
+#: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:18
+msgid "Forgot password?"
+msgstr ""
+
 #: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:25
 #: src/restaurant_hub/templates/sign_up/sign_up.html:3
 msgid "Sign up"
@@ -90,28 +127,41 @@ msgid ""
 "    account"
 msgstr ""
 
-#: src/restaurant_hub/templates/sign_up/sign_up.html:14
-msgid "Loading"
-msgstr ""
-
 #: src/restaurant_hub/templates/sign_up/sign_up.html:27
 msgid "Already have an account?"
-msgstr ""
-
-#: src/restaurant_hub/templates/sign_up/sign_up.html:29
-msgid "Sign in"
-msgstr ""
-
-#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:5
-msgid "Email"
 msgstr ""
 
 #: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
 msgid "Name"
 msgstr ""
 
-#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:17
-msgid "Password"
+#: src/users/domain/service/auth_service.py:48
+msgid "First login required"
+msgstr ""
+
+#: src/users/domain/service/auth_service.py:68
+#: src/users/domain/service/auth_service.py:89
+msgid "Invalid token"
+msgstr ""
+
+#: src/users/domain/service/auth_service.py:109
+msgid "User not found"
+msgstr ""
+
+#: src/users/domain/service/auth_service.py:128
+msgid "Insufficient password strength"
+msgstr ""
+
+#: src/users/domain/service/auth_service.py:137
+msgid "Invalid verification code"
+msgstr ""
+
+#: src/users/domain/service/auth_service.py:222
+msgid "Invalid password"
+msgstr ""
+
+#: src/users/domain/service/auth_service.py:242
+msgid "Wrong credentials"
 msgstr ""
 
 #~ msgid "All recipes"
