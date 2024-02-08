@@ -1,0 +1,24 @@
+Resources:
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: ${opt:stage, self:provider.stage}-justeats
+      Schema:
+        - Name: email
+          Required: true
+          Mutable: false
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 6
+      AutoVerifiedAttributes: [ "email" ]
+
+  UserClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: ${opt:stage, self:provider.stage}-justeats
+      GenerateSecret: false
+      UserPoolId: { Ref: UserPool }
+      AccessTokenValidity: 5
+      IdTokenValidity: 5
+      ExplicitAuthFlows:
+        - "ADMIN_NO_SRP_AUTH"

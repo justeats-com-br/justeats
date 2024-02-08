@@ -15,6 +15,8 @@ provider:
     DB_NAME: ${env:DB_NAME}
     DB_USER: ${env:DB_USER}
     DB_PASSWORD: ${env:DB_PASSWORD}
+    COGNITO_USER_POOL_ID: { Ref: UserPool }
+    COGNITO_CLIENT_ID: { Ref: UserClient }
 
   iamRoleStatements:
     - Effect: Allow
@@ -43,6 +45,7 @@ provider:
 resources:
   - ${file(serverless_resources/security_groups.yml)}
   - ${file(serverless_resources/cloud_front.yml)}
+  - ${file(serverless_resources/cognito.yml)}
 
 package:
   exclude:
