@@ -12,13 +12,13 @@ Resources:
           MinimumLength: 6
       AutoVerifiedAttributes: [ "email" ]
       LambdaConfig:
-        CustomMessage: !GetAtt custompoolmessage.Arn
+        CustomMessage: !GetAtt CustompoolmessageLambdaFunction.Arn
 
   CustomMessagePermission:
     Type: AWS::Lambda::Permission
     Properties:
       Action: "lambda:InvokeFunction"
-      FunctionName: !GetAtt custompoolmessage.Arn
+      FunctionName: !GetAtt CustompoolmessageLambdaFunction.Arn
       Principal: "cognito-idp.amazonaws.com"
       SourceArn: !GetAtt UserPool.Arn
 
