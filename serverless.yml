@@ -94,7 +94,6 @@ functions:
       - cognitoUserPool:
           pool: ${opt:stage, self:provider.stage}-justeats
           trigger: CustomMessage
-          existing: true
 
 layers:
   dependencies:
