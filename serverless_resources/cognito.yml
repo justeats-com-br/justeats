@@ -11,8 +11,6 @@ Resources:
         PasswordPolicy:
           MinimumLength: 6
       AutoVerifiedAttributes: [ "email" ]
-      LambdaConfig:
-        CustomMessage: !GetAtt CustompoolmessageLambdaFunction.Arn
 
   UserClient:
     Type: AWS::Cognito::UserPoolClient
