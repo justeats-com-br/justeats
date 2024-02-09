@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-08 19:34-0300\n"
+"POT-Creation-Date: 2024-02-09 15:56-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -51,6 +51,12 @@ msgstr ""
 msgid "Email already in use"
 msgstr ""
 
+#: src/restaurant_hub/application/controller/sign_in_controller.py:25
+msgid ""
+"An email with instructions to reset your password has been sent to your "
+"email address."
+msgstr ""
+
 #: src/restaurant_hub/infrastructure/auth.py:35
 msgid "Access token not provided"
 msgstr ""
@@ -79,6 +85,30 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
+#: src/restaurant_hub/templates/reset_password/reset_password.html:3
+msgid "Reset password"
+msgstr ""
+
+#: src/restaurant_hub/templates/reset_password/reset_password.html:6
+msgid "Reset your Password"
+msgstr ""
+
+#: src/restaurant_hub/templates/reset_password/reset_password.html:13
+#: src/restaurant_hub/templates/sign_in/sign_in.html:55
+#: src/restaurant_hub/templates/sign_up/sign_up.html:14
+msgid "Loading"
+msgstr ""
+
+#: src/restaurant_hub/templates/reset_password/partials/reset_password_form.html:4
+#: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:4
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:5
+msgid "Email"
+msgstr ""
+
+#: src/restaurant_hub/templates/reset_password/partials/reset_password_form.html:11
+msgid "Send reset link"
+msgstr ""
+
 #: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:22
 #: src/restaurant_hub/templates/sign_in/sign_in.html:3
 #: src/restaurant_hub/templates/sign_up/sign_up.html:29
@@ -89,22 +119,17 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: src/restaurant_hub/templates/sign_in/sign_in.html:13
-#: src/restaurant_hub/templates/sign_up/sign_up.html:14
-msgid "Loading"
+#: src/restaurant_hub/templates/sign_in/sign_in.html:21
+#: src/restaurant_hub/templates/sign_in/sign_in.html:40
+msgid "Close"
 msgstr ""
 
-#: src/restaurant_hub/templates/sign_in/sign_in.html:26
+#: src/restaurant_hub/templates/sign_in/sign_in.html:68
 msgid "Don't you have an account?"
 msgstr ""
 
-#: src/restaurant_hub/templates/sign_in/sign_in.html:28
+#: src/restaurant_hub/templates/sign_in/sign_in.html:70
 msgid "Sign Up"
-msgstr ""
-
-#: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:4
-#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:5
-msgid "Email"
 msgstr ""
 
 #: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:9

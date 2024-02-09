@@ -1,0 +1,28 @@
+<form hx-post="/recovery-code" hx-swap="outerHTML">
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-1" for="new_password">{{_('Email')}}</label>
+            <input id="email" name="email" value="{{email}}" class="form-input w-full"
+                   type="text"/>
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="recovery_code">{{_('Recovery code')}}</label>
+            <input id="recovery_code" name="recovery_code" value="{{recovery_code}}" class="form-input w-full"
+                   type="text"/>
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="new_password">{{_('New password')}}</label>
+            <input id="new_password" name="new_password" value="{{new_password}}" class="form-input w-full"
+                   type="password"/>
+        </div>
+    </div>
+    <div class="flex items-center justify-between mt-6">
+        <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3" data-loading-disable>
+            {{_('Reset password')}}
+        </button>
+    </div>
+
+    {% for message in messages %}
+    <p class="mt-2 text-sm text-red-500">{{message.message}}</p>
+    {% endfor %}
+</form>

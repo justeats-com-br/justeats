@@ -88,6 +88,13 @@ functions:
           - X-Amz-Security-Token
           - X-Amz-User-Agent
         allowCredentials: true
+  customPoolMessage:
+    handler: src/users/functions/custom_pool_message.handle
+    events:
+      - cognitoUserPool:
+          pool: ${opt:stage, self:provider.stage}-justeats
+          trigger: CustomMessage
+          existing: true
 
 layers:
   dependencies:

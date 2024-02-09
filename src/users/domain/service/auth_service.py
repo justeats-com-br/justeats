@@ -109,6 +109,13 @@ class AuthService:
                     message=gettext('User not found'),
                     key='user_not_found'
                 )])
+            elif error_code == 'LimitExceededException':
+                return Left([Message(
+                    category=MessageCategory.VALIDATION,
+                    target='email',
+                    message=gettext('Too many requests, try again later'),
+                    key='too_many_requests'
+                )])
             else:
                 raise e
 
@@ -134,7 +141,7 @@ class AuthService:
                 return Left([Message(
                     category=MessageCategory.VALIDATION,
                     target='verification_code',
-                    message=gettext('Invalid verification code'),
+                    message=gettext('Invalid recovery code'),
                     key='invalid_token'
                 )])
             else:

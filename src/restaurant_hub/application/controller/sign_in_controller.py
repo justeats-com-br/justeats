@@ -1,5 +1,8 @@
+from gettext import gettext
+
 from flask import render_template, request, make_response, redirect, url_for
 
+from src.infrastructure.common.message import Message, MessageCategory
 from src.restaurant_hub.application.controller import main
 from src.restaurant_hub.infrastructure.auth import current_user
 from src.users.domain.service.auth_service import AuthService
@@ -14,7 +17,16 @@ def load_sign_in():
     except Exception:
         pass
 
-    return render_template('sign_in/sign_in.html')
+    message = None
+    if request.args.get('message') == 'password_updated':
+        message = Message(
+            category=MessageCategory.INFO,
+            target='password',
+            message=gettext('Your password has been updated. You can sign in now.'),
+            key='password_updated'
+        )
+
+    return render_template('sign_in/sign_in.html', message=message)
 
 
 @main.route('/sign-in', methods=['POST'])
