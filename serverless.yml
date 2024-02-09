@@ -88,7 +88,7 @@ functions:
           - X-Amz-Security-Token
           - X-Amz-User-Agent
         allowCredentials: true
-  customPoolMessage:
+  custompoolmessage:
     handler: src/users/functions/custom_pool_message.handle
     events:
       - cognitoUserPool:
