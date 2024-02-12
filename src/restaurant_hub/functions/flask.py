@@ -94,31 +94,17 @@ class StartResponse(object):
 
     def response(self, output):
         headers = self.headers
-        duplicates = set()
-        seen = set()
-        for key, _ in headers:
-            if key in seen:
-                duplicates.add(key)
-            else:
-                seen.add(key)
 
-        output_header = {
-            "headers": {},
-            "multiValueHeaders": {}
-        }
+        output_header = {}
         for key, value in headers:
-            if key in duplicates:
-                if key in output_header["multiValueHeaders"]:
-                    output_header["multiValueHeaders"][key].append(value)
-                else:
-                    output_header["multiValueHeaders"][key] = [value]
+            if output_header.get(key):
+                output_header[key] = output_header[key] + ',' + value
             else:
-                output_header["headers"][key] = value
+                output_header[key] = value
 
         rv = {
             'statusCode': self.status,
-            'headers': output_header['headers'],
-            'multiValueHeaders': output_header['multiValueHeaders']
+            'headers': output_header,
         }
         rv.update(self.build_body(headers, output))
         return rv
