@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-12 12:59-0300\n"
+"POT-Creation-Date: 2024-02-12 19:53-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -104,6 +104,7 @@ msgid "Recovery your password"
 msgstr ""
 
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:13
+#: src/restaurant_hub/templates/restaurant/add_restaurant.html:41
 #: src/restaurant_hub/templates/sign_in/sign_in.html:55
 #: src/restaurant_hub/templates/sign_up/sign_up.html:14
 msgid "Loading"

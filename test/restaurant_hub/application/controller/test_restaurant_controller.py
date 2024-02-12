@@ -1,4 +1,5 @@
 import tempfile
+from gettext import gettext
 
 from flask import url_for
 from playwright.sync_api import expect
@@ -18,18 +19,18 @@ class TestSignInController(WebappTest):
             page.goto(url_for('main.load_add_restaurant', _external=True))
 
             restaurant = RestaurantFactory()
-            page.get_by_label("Name").fill(restaurant.name)
-            page.get_by_label("Category").select_option(restaurant.category.value)
-            page.get_by_label("Document number").fill(restaurant.document_number)
-            page.locator("#description").fill(restaurant.description)
-            page.get_by_label("Logo").set_input_files(logo_file_name)
-            page.get_by_label("Zip code").fill(restaurant.address.zip_code)
-            page.get_by_label("State").select_option(restaurant.address.state.value)
-            page.get_by_label("City").fill(restaurant.address.city)
-            page.get_by_label("Neighborhood").fill(restaurant.address.neighborhood)
-            page.get_by_label("Street", exact=True).fill(restaurant.address.street)
-            page.get_by_label("Street number").fill(restaurant.address.number)
-            page.get_by_label("Address complement").fill(restaurant.address.complement)
-            page.get_by_role("button", name="Add restaurant").click()
+            page.get_by_label(gettext('Name')).fill(restaurant.name)
+            page.get_by_label(gettext('Category')).select_option(restaurant.category.value)
+            page.get_by_label(gettext('Document number')).fill(restaurant.document_number)
+            page.locator('#description').fill(restaurant.description)
+            page.get_by_label(gettext('Logo')).set_input_files(logo_file_name)
+            page.get_by_label(gettext('Zip code')).fill(restaurant.address.zip_code)
+            page.get_by_label(gettext('State')).select_option(restaurant.address.state.value)
+            page.get_by_label(gettext('City')).fill(restaurant.address.city)
+            page.get_by_label(gettext('Neighborhood')).fill(restaurant.address.neighborhood)
+            page.get_by_label(gettext('Street'), exact=True).fill(restaurant.address.street)
+            page.get_by_label(gettext('Street number')).fill(restaurant.address.number)
+            page.get_by_label(gettext('Address complement')).fill(restaurant.address.complement)
+            page.get_by_role('button', name=gettext('Add restaurant')).click()
 
-            expect(page.get_by_role("heading", name="Add working hours", exact=True)).to_be_visible()
+            expect(page.get_by_role('heading', name='Add working hours', exact=True)).to_be_visible()
