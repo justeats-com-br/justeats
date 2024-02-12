@@ -24,3 +24,4 @@ from . import index_controller
 from . import sign_up_controller
 from . import sign_in_controller
 from . import recovery_password_controller
+from . import restaurant_controller

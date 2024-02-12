@@ -40,5 +40,5 @@ def sign_up():
         response.set_cookie('access_token', token)
         response.set_cookie('refresh_token', refresh_token)
         response.set_cookie('email', email)
-        response.headers['HX-Redirect'] = url_for('main.load_index')
+        response.headers['HX-Redirect'] = url_for('main.load_add_restaurant')
         return response

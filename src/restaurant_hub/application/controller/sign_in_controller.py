@@ -36,7 +36,8 @@ def sign_in():
     result = AuthService().login(email, password)
     if result.is_right():
         (token, refresh_token) = result.right()
-        response = make_response(redirect(url_for('main.load_index')))
+        response = make_response()
+        response.headers['HX-Redirect'] = url_for('main.load_add_restaurant')
         response.set_cookie('access_token', token)
         response.set_cookie('refresh_token', refresh_token)
         response.set_cookie('email', email)

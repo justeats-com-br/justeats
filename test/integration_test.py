@@ -2,7 +2,7 @@ import boto3
 import httpretty
 import pytest
 from coverage.html import os
-from moto import mock_sqs, mock_sns, mock_cognitoidp
+from moto import mock_sqs, mock_sns, mock_cognitoidp, mock_s3
 
 from src.infrastructure.common.config import get_key
 from src.infrastructure.database.connection_factory import Session
@@ -92,3 +92,28 @@ class IntegrationTest(object):
         yield
         httpretty.disable()
         httpretty.reset()
+
+    @pytest.fixture(autouse=True)
+    def s3_client(self):
+        s3 = mock_s3()
+        s3.start()
+
+        s3_client = boto3.client(
+            "s3",
+            region_name=get_key("AWS_REGION"),
+            aws_access_key_id=get_key("AWS_ACCESS_KEY_ID"),
+            aws_secret_access_key=get_key("AWS_SECRET_ACCESS_KEY"),
+            aws_session_token=get_key("AWS_SESSION_TOKEN"),
+        )
+        buckets_serverless = [
+            "RESTAURANT_LOGO_BUCKET_NAME",
+        ]
+
+        for bucket_name in buckets_serverless:
+            s3_client.create_bucket(
+                Bucket=get_key(bucket_name)
+            )
+
+        yield s3_client
+
+        s3.stop()

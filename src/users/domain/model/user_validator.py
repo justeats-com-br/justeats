@@ -1,5 +1,5 @@
 import re
-from typing import List
+from typing import List, Optional
 
 from cerberus import Validator
 from cerberus.errors import ErrorDefinition
@@ -31,7 +31,7 @@ class UserValidations(Validator):
 
 
 class UserValidator:
-    def __init__(self, user_repository: UserRepository = None):
+    def __init__(self, user_repository: Optional[UserRepository] = None):
         self.user_repository = user_repository or UserRepository()
 
     def validate_new_user(self, user: User) -> List[Message]:

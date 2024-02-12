@@ -20,5 +20,11 @@ def text_for_key(key: str) -> str:
         return gettext('Invalid email')
     elif key == 'unique_email':
         return gettext('Email already in use')
+    elif key == 'invalid_document_number':
+        return gettext('Invalid document number')
+    elif key == 'unique_document_number':
+        return gettext('Document number already in use')
+    elif key == 'invalid_image_type':
+        return gettext('Invalid image type')
     else:
         raise ValueError(f'Unknown key: {key}')

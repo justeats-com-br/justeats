@@ -28,6 +28,7 @@ class UserTableFactory(SQLAlchemyModelFactory):
         strategy = BUILD_STRATEGY
         model = UserTable
         sqlalchemy_session = Session
+        sqlalchemy_session_persistence = "flush"
 
     id = lazy_attribute(lambda o: uuid.uuid4())
     email = lazy_attribute(lambda o: fake.company_email())

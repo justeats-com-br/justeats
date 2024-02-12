@@ -48,6 +48,7 @@ resources:
   - ${file(serverless_resources/cloud_front.yml)}
   - ${file(serverless_resources/cognito.yml)}
   - ${file(serverless_resources/sns.yml)}
+  - ${file(serverless_resources/s3.yml)}
 
 package:
   exclude:

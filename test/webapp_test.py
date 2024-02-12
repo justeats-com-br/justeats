@@ -37,7 +37,7 @@ class WebappTest(IntegrationTest):
         return user
 
     @fixture
-    def app(self, cognito_user, sqs_client, sns_client):
+    def app(self, cognito_user, sqs_client, sns_client, s3_client):
         os.environ['no_proxy'] = '*'
         app = create_app()
         app.config['SERVER_NAME'] = 'localhost'

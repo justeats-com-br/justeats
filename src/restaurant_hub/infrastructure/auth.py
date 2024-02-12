@@ -36,7 +36,7 @@ def auth(view_func):
                 key='access_token_not_provided'
             )])
 
-        auth_result = AuthService().load_id_by_token(access_token)
+        auth_result = AuthService().load_username_by_token(access_token)
         if auth_result.is_right():
             return view_func(*args, **kwargs)
         else:
