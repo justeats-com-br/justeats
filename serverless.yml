@@ -18,6 +18,7 @@ provider:
     COGNITO_USER_POOL_ID: { Ref: UserPool }
     COGNITO_CLIENT_ID: { Ref: UserClient }
     DOMAIN_EVENTS_TOPIC: { Ref: DomainEventsTopic }
+    PLACES_API_KEY: ${env:PLACES_API_KEY}
 
   iamRoleStatements:
     - Effect: Allow

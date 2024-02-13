@@ -5,7 +5,7 @@
         <div>
             <label class="block text-sm font-medium mb-1" for="name">{{_('Name')}}</label>
             <input id="name" name="name" value="{{name}}" class="form-input w-full"
-                   type="text"/>
+                   type="text" placeholder="{{_('Nykolas\' Restaurant')}}"/>
             {{input_message(messages, 'name')}}
         </div>
         <div class="flex space-x-4">
@@ -27,14 +27,15 @@
             <div class="flex-1">
                 <label class="block text-sm font-medium mb-1" for="document_number">{{_('Document number')}}</label>
                 <input id="document_number" name="document_number" value="{{document_number}}" class="form-input w-full"
-                       type="text"/>
+                       type="text" placeholder="12.345.678/0001-01"/>
                 {{input_message(messages, 'document_number')}}
             </div>
         </div>
         <div class="flex space-x-4">
             <div class="flex-1">
                 <label class="block text-sm font-medium mb-1" for="name">{{_('Description')}}</label>
-                <textarea id="description" name="description" class="form-input w-full">{{description}}</textarea>
+                <textarea id="description" name="description" class="form-input w-full"
+                          placeholder="{{_('Good brazilian food')}}">{{description}}</textarea>
                 {{input_message(messages, 'description')}}
             </div>
             <div class="flex-1">
@@ -44,64 +45,35 @@
             </div>
         </div>
         <h3 class="font-semibold text-lg mb-4">{{_('Address')}}</h3>
-        <div class="flex space-x-4">
-            <div class="flex-1">
-                <label class="block text-sm font-medium mb-1" for="zip_code">{{_('Zip code')}}</label>
-                <input id="zip_code" name="zip_code" value="{{zip_code}}" class="form-input w-full"
-                       type="text"/>
-                {{input_message(messages, 'zip_code')}}
-            </div>
-            <div class="flex-1">
-                <label class="block text-sm font-medium mb-1" for="state">{{_('State')}}</label>
-                <select id="state" name="state" class="form-select w-full">
-                    <option value="">{{_('Select a state')}}</option>
-                    {% for available_state in available_states %}
-                    {% if available_state == state %}
-                    <option value="{{available_state.value}}" selected>{{available_state.user_friendly_name()}}
-                    </option>
-                    {% else %}
-                    <option value="{{available_state.value}}">{{available_state.user_friendly_name()}}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-                {{input_message(messages, 'state')}}
-            </div>
-        </div>
-        <div class="flex space-x-4">
-            <div class="flex-1">
-                <label class="block text-sm font-medium mb-1" for="city">{{_('City')}}</label>
-                <input id="city" name="city" value="{{city}}" class="form-input w-full"
-                       type="text"/>
-                {{input_message(messages, 'city')}}
-            </div>
-            <div class="flex-1">
-                <label class="block text-sm font-medium mb-1" for="neighborhood">{{_('Neighborhood')}}</label>
-                <input id="neighborhood" name="neighborhood" value="{{neighborhood}}" class="form-input w-full"
-                       type="text"/>
-                {{input_message(messages, 'neighborhood')}}
-            </div>
-        </div>
         <div>
-            <label class="block text-sm font-medium mb-1" for="street">{{_('Street')}}</label>
-            <input id="street" name="street" value="{{street}}" class="form-input w-full"
-                   type="text"/>
+            <label class="block text-sm font-medium mb-1" for="autocomplete">{{_('Address')}}</label>
+            <input id="autocomplete" name="address" value="{{address}}" class="form-input w-full"
+                   type="text" onFocus="geolocate()" placeholder="{{_('Street of my restaurant, 1234')}}"/>
+            {{input_message(messages, 'zip_code')}}
+            {{input_message(messages, 'state')}}
+            {{input_message(messages, 'city')}}
+            {{input_message(messages, 'neighborhood')}}
             {{input_message(messages, 'street')}}
+            {{input_message(messages, 'number')}}
+
+            <input id="place_id" name="place_id" value="{{place_id}}" type="hidden"/>
+            <input id="zip_code" name="zip_code" type="hidden"/>
+            <input id="state" name="state" type="hidden"/>
+            <input id="city" name="city" type="hidden"/>
+            <input id="neighborhood" name="neighborhood" type="hidden"/>
+            <input id="street" name="street" type="hidden"/>
+            <input id="street_number" name="street_number" type="hidden"/>
+            <input id="latitude" name="latitude" type="hidden"/>
+            <input id="longitude" name="longitude" type="hidden"/>
         </div>
-        <div class="flex space-x-4">
-            <div class="flex-1">
-                <label class="block text-sm font-medium mb-1" for="street_number">{{_('Street number')}}</label>
-                <input id="street_number" name="street_number" value="{{street_number}}" class="form-input w-full"
-                       type="text"/>
-                {{input_message(messages, 'number')}}
-            </div>
-            <div class="flex-1">
-                <label class="block text-sm font-medium mb-1" for="address_complement">{{_('Address
-                    complement')}}</label>
-                <input id="address_complement" name="address_complement" value="{{address_complement}}"
-                       class="form-input w-full"
-                       type="text"/>
-                {{input_message(messages, 'complement')}}
-            </div>
+        <div class="w-1/2">
+            <label class="block text-sm font-medium mb-1" for="address_complement">{{_('Address
+                complement')}}</label>
+            <input id="address_complement" name="address_complement" value="{{address_complement}}"
+                   class="form-input w-full"
+                   type="text"
+                   placeholder="{{_('Second floor')}}"/>
+            {{input_message(messages, 'complement')}}
         </div>
     </div>
 

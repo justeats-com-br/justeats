@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-12 19:53-0300\n"
+"POT-Creation-Date: 2024-02-12 23:34-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -79,19 +79,19 @@ msgstr ""
 msgid "Expand / collapse sidebar"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:165
+#: src/restaurant_hub/templates/base/logged.html:166
 msgid "Open sidebar"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:189
+#: src/restaurant_hub/templates/base/logged.html:190
 msgid "My profile"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:212
+#: src/restaurant_hub/templates/base/logged.html:213
 msgid "Settings"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:218
+#: src/restaurant_hub/templates/base/logged.html:219
 msgid "Sign Out"
 msgstr ""
 
@@ -134,7 +134,7 @@ msgid "Send recovery code"
 msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/add_restaurant.html:3
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:110
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:82
 msgid "Add restaurant"
 msgstr ""
 
@@ -147,6 +147,10 @@ msgstr ""
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:6
 #: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
 msgid "Name"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:8
+msgid "Nykolas' Restaurant"
 msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:13
@@ -165,46 +169,31 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:41
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:38
+msgid "Good brazilian food"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:42
 msgid "Logo"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:46
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:47
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:49
 msgid "Address"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:49
-msgid "Zip code"
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:51
+msgid "Street of my restaurant, 1234"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:55
-msgid "State"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:57
-msgid "Select a state"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:72
-msgid "City"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:78
-msgid "Neighborhood"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:85
-msgid "Street"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:92
-msgid "Street number"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:98
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:70
 msgid ""
 "Address\n"
-"                    complement"
+"                complement"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:75
+msgid "Second floor"
 msgstr ""
 
 #: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:22
@@ -477,5 +466,39 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Send reset link"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Address\n"
+#~ "                    complement"
+#~ msgstr ""
+
+#~ msgid "Enter your address"
+#~ msgstr ""
+
+#~ msgid "Zip code"
+#~ msgstr ""
+
+#~ msgid "State"
+#~ msgstr ""
+
+#~ msgid "Select a state"
+#~ msgstr ""
+
+#~ msgid "City"
+#~ msgstr ""
+
+#~ msgid "Neighborhood"
+#~ msgstr ""
+
+#~ msgid "Street"
+#~ msgstr ""
+
+#~ msgid "Street number"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Address-->\n"
+#~ "        <!--                    complement"
 #~ msgstr ""
 

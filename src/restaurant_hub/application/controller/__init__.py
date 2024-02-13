@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from src.infrastructure.common.config import ENVIRONMENT
+from src.infrastructure.common.config import ENVIRONMENT, get_key
 from src.infrastructure.database.connection_factory import Session
 
 main = Blueprint('main', __name__)
@@ -16,8 +16,8 @@ def closeDatabaseSession(e):
 
 
 @main.context_processor
-def inject_environment():
-    return dict(ENVIRONMENT=ENVIRONMENT)
+def inject_environment_variables():
+    return dict(ENVIRONMENT=ENVIRONMENT, PLACES_API_KEY=get_key('PLACES_API_KEY'))
 
 
 from . import index_controller

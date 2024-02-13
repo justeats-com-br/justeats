@@ -8,8 +8,8 @@ from test.restaurants.domain.model.restaurant_factory import RestaurantFactory
 from test.webapp_test import WebappTest
 
 
-class TestSignInController(WebappTest):
-    def test_should_sign_in(self, logged_user, page):
+class TestRestaurantController(WebappTest):
+    def test_should_add_restaurant(self, logged_user, page):
         logo = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90wS\xde\x00\x00\x00\x0cIDAT\x08\xd7c\xf8\x0f\x04\x00\x09\xfb\x03\xfd\x00\x00\x00\x00IEND\xaeB`\x82'
         with tempfile.NamedTemporaryFile(delete=False) as logo_tmp_file:
             logo_file_name = logo_tmp_file.name
@@ -24,12 +24,9 @@ class TestSignInController(WebappTest):
             page.get_by_label(gettext('Document number')).fill(restaurant.document_number)
             page.locator('#description').fill(restaurant.description)
             page.get_by_label(gettext('Logo')).set_input_files(logo_file_name)
-            page.get_by_label(gettext('Zip code')).fill(restaurant.address.zip_code)
-            page.get_by_label(gettext('State')).select_option(restaurant.address.state.value)
-            page.get_by_label(gettext('City')).fill(restaurant.address.city)
-            page.get_by_label(gettext('Neighborhood')).fill(restaurant.address.neighborhood)
-            page.get_by_label(gettext('Street'), exact=True).fill(restaurant.address.street)
-            page.get_by_label(gettext('Street number')).fill(restaurant.address.number)
+            full_address = f'{restaurant.address.street}, {restaurant.address.number}, {restaurant.address.neighborhood}, ' \
+                           f'{restaurant.address.city}, {restaurant.address.state.value}, {restaurant.address.zip_code}'
+            page.get_by_label(gettext('Address'), exact=True).fill(full_address)
             page.get_by_label(gettext('Address complement')).fill(restaurant.address.complement)
             page.get_by_role('button', name=gettext('Add restaurant')).click()
 

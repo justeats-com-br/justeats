@@ -56,3 +56,121 @@
     </div>
 </div>
 {% endblock %}
+
+{% block custom_scripts %}
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{PLACES_API_KEY}}&libraries=places&callback=initAutocomplete"
+        type="text/javascript"></script>
+
+<script>
+    {% if ENVIRONMENT == 'TEST' %}
+    document.getElementById('state').value = 'SC';
+    document.getElementById('city').value = 'Florianópolis';
+    document.getElementById('neighborhood').value = 'Rio Tavares';
+    document.getElementById('street').value = 'Rodovia Dr. Antônio Luiz Moura Gonzaga';
+    document.getElementById('street_number').value = '3339';
+    document.getElementById('zip_code').value = '88048301';
+    document.getElementById('latitude').value = '-27.657829';
+    document.getElementById('longitude').value = '-48.4880029';
+    {% else %}
+    document.body.addEventListener('htmx:afterSwap', function(event) {
+        if (document.getElementById('autocomplete').value !== '') {
+            initAutocomplete();
+        }
+    });
+
+    let autocomplete;
+    let placeService;
+
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'),
+            {types: ['address'], componentRestrictions: {country: 'br'}}
+        );
+        autocomplete.addListener('place_changed', fillInAutoCompleteAddress);
+        placeService = new google.maps.places.PlacesService(document.createElement('div'));
+        fillInAddressWithPlaceId(document.getElementById('place_id').value);
+    }
+
+    function fillInAddressWithPlaceId(placeId) {
+        if (!placeId) return;
+
+        placeService.getDetails({placeId: placeId}, function(place, status) {
+            if (status === 'OK') {
+                fillInAddress(place);
+            }
+        });
+    }
+
+    function fillInAutoCompleteAddress() {
+        const place = autocomplete.getPlace();
+        fillInAddress(place);
+    }
+
+    function fillInAddress(place) {
+        document.getElementById('place_id').value = place.place_id;
+        document.getElementById('state').value = '';
+        document.getElementById('city').value = '';
+        document.getElementById('neighborhood').value = '';
+        document.getElementById('street').value = '';
+        document.getElementById('street_number').value = '';
+        document.getElementById('zip_code').value = '';
+        document.getElementById('latitude').value = place.geometry.location.lat();
+        document.getElementById('longitude').value = place.geometry.location.lng();
+
+        for (const component of place.address_components) {
+            const componentType = component.types[0];
+            switch (componentType) {
+                case 'administrative_area_level_1': {
+                    const shortStateName = component.short_name.toUpperCase();
+                    document.getElementById('state').value = shortStateName;
+                    break;
+                }
+                case 'locality':
+                case 'administrative_area_level_2':
+                case 'political':
+                case 'postal_town': {
+                    if (component.long_name != null && component.long_name !== '') {
+                        document.getElementById('city').value = component.long_name;
+                    }
+                    break;
+                }
+                case 'sublocality_level_1':
+                case 'sublocality': {
+                    if (component.long_name != null && component.long_name !== '') {
+                        document.getElementById('neighborhood').value = component.long_name;
+                    }
+                    break;
+                }
+                case 'route': {
+                    document.getElementById('street').value = component.long_name;
+                    break;
+                }
+                case 'street_number': {
+                    document.getElementById('street_number').value = component.long_name;
+                    break;
+                }
+                case 'postal_code': {
+                    document.getElementById('zip_code').value = component.long_name;
+                    break;
+                }
+            }
+        }
+    }
+
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                const circle = new google.maps.Circle(
+                    {center: geolocation, radius: position.coords.accuracy});
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+    {% endif %}
+</script>
+{% endblock %}
