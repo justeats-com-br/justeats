@@ -31,8 +31,7 @@ class RestaurantService:
                 get_key('RESTAURANT_LOGO_BUCKET_NAME'),
                 logo,
                 str(restaurant.id),
-                content_type,
-                'public-read')
+                content_type)
             restaurant.logo_url = logo_url
 
         self.restaurant_repository.add(restaurant)

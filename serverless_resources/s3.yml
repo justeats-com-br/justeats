@@ -3,6 +3,3 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: ${opt:stage, self:provider.stage}-justeats-restaurant-logo
-      AccessControl: Private
-      PublicAccessBlockConfiguration:
-        BlockPublicPolicy: false

@@ -68,4 +68,4 @@ class TestRestaurantService:
         restaurant_repository.add.assert_called_once_with(restaurant)
         s3_client.put_binary_object.assert_called_once_with(get_key('RESTAURANT_LOGO_BUCKET_NAME'), logo,
                                                             str(restaurant.id),
-                                                            'image/png', 'public-read')
+                                                            'image/png')
