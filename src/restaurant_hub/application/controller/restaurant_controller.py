@@ -11,14 +11,14 @@ from src.restaurants.domain.model.restaurant import Category, State, Restaurant,
 from src.restaurants.domain.service.restaurant_service import RestaurantService
 
 
-@main.route('/restaurant', methods=['GET'])
+@main.route('/restaurants', methods=['GET'])
 def load_add_restaurant():
     available_categories = [category for category in Category]
     return render_template('restaurant/add_restaurant.html',
                            available_categories=available_categories)
 
 
-@main.route('/restaurant', methods=['POST'])
+@main.route('/restaurants', methods=['POST'])
 @auth
 def add_restaurant():
     user = current_user()
@@ -58,7 +58,7 @@ def add_restaurant():
         return response
 
 
-@main.route('/restaurant/<restaurant_id>/working-hours', methods=['GET'])
+@main.route('/restaurants/<restaurant_id>/working-hours', methods=['GET'])
 def load_add_working_hours(restaurant_id: str):
     return render_template('restaurant/add_working_hours.html')
 
