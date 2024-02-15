@@ -30,7 +30,7 @@ class TestRestaurantController(WebappTest):
             page.get_by_label(gettext('Address complement')).fill(restaurant.address.complement)
             page.get_by_role('button', name=gettext('Add restaurant')).click()
 
-            expect(page.get_by_role('heading', name='Add working hours', exact=True)).to_be_visible()
+            expect(page.get_by_role('heading', name='Working hours', exact=True)).to_be_visible()
 
     def test_should_add_working_hours(self, logged_user, page):
         restaurant_record = RestaurantTableFactory.create(user_id=logged_user.id)
