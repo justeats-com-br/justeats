@@ -2,4 +2,4 @@ Resources:
   RestaurantLogoBucketS3:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: ${self.custom.restaurantLogoBucketName}
+      BucketName: ${self:custom.restaurantLogoBucketName}
