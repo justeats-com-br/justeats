@@ -20,6 +20,10 @@ class RestaurantRepository:
         result = self.session.query(RestaurantTable).filter(RestaurantTable.document_number == document_number).first()
         return result.to_domain() if result else None
 
+    def load(self, restaurant_id: UUID) -> Optional[Restaurant]:
+        result = self.session.query(RestaurantTable).get(restaurant_id)
+        return result.to_domain() if result else None
+
 
 class RestaurantTable(Base):
     __tablename__ = 'restaurants'

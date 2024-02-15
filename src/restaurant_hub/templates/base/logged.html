@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>{% block page_title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="./static/css/vendors/flatpickr.min.css" rel="stylesheet">
-    <link href="./static/style.css" rel="stylesheet">
+    <link href="/static/css/vendors/flatpickr.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
     <style>
         [data-loading] {
           display: none;
@@ -184,7 +184,7 @@
                                     @click.prevent="open = !open"
                                     :aria-expanded="open"
                             >
-                                <img class="w-8 h-8 rounded-full" src="./static/images/user-avatar-32.png" width="32"
+                                <img class="w-8 h-8 rounded-full" src="/static/images/user-avatar-32.png" width="32"
                                      height="32" alt="User"/>
                                 <div class="flex items-center truncate">
                                     <span class="truncate ml-2 text-sm font-medium dark:text-slate-300 group-hover:text-slate-800 dark:group-hover:text-slate-200">{{_('My profile')}}</span>
@@ -236,11 +236,11 @@
 
 </div>
 
-<script src="./static/js/htmx.min.js"></script>
-<script src="./static/js/loading-states.min.js"></script>
-<script src="./static/js/response-targets.min.js"></script>
-<script src="./static/js/vendors/alpinejs.min.js" defer></script>
-<script src="./static/js/main.js"></script>
+<script src="/static/js/htmx.min.js"></script>
+<script src="/static/js/loading-states.min.js"></script>
+<script src="/static/js/response-targets.min.js"></script>
+<script src="/static/js/vendors/alpinejs.min.js" defer></script>
+<script src="/static/js/main.js"></script>
 {% block custom_scripts %}{% endblock %}
 </body>
 

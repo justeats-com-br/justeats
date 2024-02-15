@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-13 15:12-0300\n"
+"POT-Creation-Date: 2024-02-14 23:05-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -105,6 +105,7 @@ msgstr ""
 
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:13
 #: src/restaurant_hub/templates/restaurant/add_restaurant.html:41
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:40
 #: src/restaurant_hub/templates/sign_in/sign_in.html:55
 #: src/restaurant_hub/templates/sign_up/sign_up.html:14
 msgid "Loading"
@@ -194,6 +195,70 @@ msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:75
 msgid "Second floor"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:3
+msgid "Add working hours"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:34
+msgid "Working hours"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:5
+msgid "Working Hours"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:10
+msgid "Day of Week"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:12
+msgid "Select a day"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:13
+msgid "Monday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:14
+msgid "Tuesday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:15
+msgid "Wednesday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:16
+msgid "Thursday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:17
+msgid "Friday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:18
+msgid "Saturday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:19
+msgid "Sunday"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:23
+msgid "Opening Time"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:27
+msgid "Closing Time"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:38
+msgid "Add More Hours"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/working_hours/partials/add_working_hours_form.html:45
+msgid "Save Working Hours"
 msgstr ""
 
 #: src/restaurant_hub/templates/sign_in/partials/sign_in_form.html:22
@@ -500,5 +565,11 @@ msgstr ""
 #~ msgid ""
 #~ "Address-->\n"
 #~ "        <!--                    complement"
+#~ msgstr ""
+
+#~ msgid "Add working hours"
+#~ msgstr ""
+
+#~ msgid "Working hours"
 #~ msgstr ""
 

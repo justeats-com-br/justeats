@@ -1,0 +1,54 @@
+<form hx-post="/restaurants/{{restaurant_id}}/working-hours" hx-swap="outerHTML" xmlns="http://www.w3.org/1999/html"
+      class="mb-6">
+    {% from "partials/input_message.html" import input_message %}
+    <div class="space-y-4">
+        <h3 class="font-semibold text-lg mb-4">{{_('Working Hours')}}</h3>
+        <div id="working-hours-container" class="space-y-4">
+            <div class="space-y-4 working-hour-entry">
+                <div class="flex space-x-4">
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium mb-1" for="day_of_week">{{_('Day of Week')}}</label>
+                        <select id="day_of_week" name="day_of_week[]" class="form-select w-full" required>
+                            <option>{{_('Select a day')}}</option>
+                            <option value="1">{{_('Monday')}}</option>
+                            <option value="2">{{_('Tuesday')}}</option>
+                            <option value="3">{{_('Wednesday')}}</option>
+                            <option value="4">{{_('Thursday')}}</option>
+                            <option value="5">{{_('Friday')}}</option>
+                            <option value="6">{{_('Saturday')}}</option>
+                            <option value="7">{{_('Sunday')}}</option>
+                        </select>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium mb-1" for="opening_time">{{_('Opening Time')}}</label>
+                        <input id="opening_time" name="opening_time[]" type="time" class="form-input w-full" required/>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium mb-1" for="closing_time">{{_('Closing Time')}}</label>
+                        <input id="closing_time" name="closing_time[]" type="time" class="form-input w-full" required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+            <button type="button"
+                    class="btn dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500"
+                    onclick="addWorkingHourEntry()">
+                {{_('Add More Hours')}}
+            </button>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between mt-6">
+        <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-auto" data-loading-disable>
+            {{_('Save Working Hours')}}
+        </button>
+    </div>
+
+    {% for message in messages %}
+    {% if message.target not in [] %}
+    <p class="mt-2 text-sm text-red-500">{{message.message}} - {{message.target}}</p>
+    {% endif %}
+    {% endfor %}
+</form>

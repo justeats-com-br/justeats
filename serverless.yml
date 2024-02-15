@@ -46,7 +46,7 @@ provider:
       - ${env:SUBNET_B}
 
 custom:
-  restaurantLogoBucketName: ${opt:stage, self:provider.stage}-justeats-restaurant-logo
+  restaurantLogoBucketName: ${opt:stage, self:provider.stage}-justeats-restaurant-logos
 
 resources:
   - ${file(serverless_resources/security_groups.yml)}

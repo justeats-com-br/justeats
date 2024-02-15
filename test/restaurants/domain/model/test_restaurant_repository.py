@@ -25,3 +25,10 @@ class TestRestaurantRepository(IntegrationTest):
         result = repository.load_by_document_number(restaurants_records[0].document_number)
 
         assert result == restaurants_records[0].to_domain()
+
+    def test_should_load(self, repository):
+        restaurant_record = RestaurantTableFactory.create()
+
+        result = repository.load(restaurant_record.id)
+
+        assert result == restaurant_record.to_domain()
