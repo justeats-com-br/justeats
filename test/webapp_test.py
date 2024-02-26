@@ -46,3 +46,7 @@ class WebappTest(IntegrationTest):
     @fixture(autouse=True)
     def server(self, live_server):
         return live_server
+
+    @fixture(autouse=True)
+    def page_timeout(self, page):
+        page.set_default_timeout(5000)

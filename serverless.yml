@@ -19,7 +19,8 @@ provider:
     COGNITO_CLIENT_ID: { Ref: UserClient }
     DOMAIN_EVENTS_TOPIC: { Ref: DomainEventsTopic }
     PLACES_API_KEY: ${env:PLACES_API_KEY}
-    RESTAURANT_LOGO_BUCKET: ${self:custom.restaurantLogoBucketName}
+    RESTAURANT_LOGO_BUCKET_NAME: ${self:custom.restaurantLogoBucketName}
+    PRODUCT_IMAGE_BUCKET_NAME: ${self:custom.productImageBucketName}
 
   iamRoleStatements:
     - Effect: Allow
@@ -47,6 +48,7 @@ provider:
 
 custom:
   restaurantLogoBucketName: ${opt:stage, self:provider.stage}-justeats-restaurant-logos
+  productImageBucketName: ${opt:stage, self:provider.stage}-justeats-product-images
 
 resources:
   - ${file(serverless_resources/security_groups.yml)}

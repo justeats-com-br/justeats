@@ -1,13 +1,12 @@
 import re
 import uuid
 from datetime import datetime
-from decimal import Decimal
 from uuid import UUID
 
 from flask import render_template, make_response, url_for
 from flask import request
 
-from src.restaurant_hub.application.controller import main
+from src.restaurant_hub.application.controller import main, string_form_value, enum_form_value, decimal_form_value
 from src.restaurant_hub.infrastructure.auth import auth, current_user
 from src.restaurants.domain.model.restaurant import Category, State, Restaurant, Address, Point
 from src.restaurants.domain.model.restaurant_repository import RestaurantRepository
@@ -18,31 +17,30 @@ from src.restaurants.domain.service.restaurant_service import RestaurantService
 
 @main.route('/restaurants', methods=['GET'])
 def load_add_restaurant():
-    available_categories = [category for category in Category]
-    return render_template('restaurant/add_restaurant.html',
-                           available_categories=available_categories)
+    return render_template('restaurant/add_restaurant.html')
 
 
 @main.route('/restaurants', methods=['POST'])
 @auth
 def add_restaurant():
     user = current_user()
-    name = request.form['name']
-    category = Category[request.form['category']] if request.form['category'] else None
-    document_number = re.sub('[^0-9]', '', request.form['document_number']) if request.form['document_number'] else None
-    description = request.form['description']
+    name = string_form_value('name')
+    category = enum_form_value(Category, 'category')
+    document_number = re.sub('[^0-9]', '', string_form_value('document_number')) if string_form_value(
+        'document_number') else None
+    description = string_form_value('description')
     logo = request.files['logo'] if 'logo' in request.files else None
-    address = request.form['address']
-    place_id = request.form['place_id']
-    zip_code = re.sub('[^0-9]', '', request.form['zip_code']) if request.form['zip_code'] else None
-    state = State[request.form['state']] if request.form['state'] else None
-    city = request.form['city']
-    neighborhood = request.form['neighborhood']
-    street = request.form['street']
-    street_number = request.form['street_number']
-    address_complement = request.form['address_complement']
-    latitude = Decimal(request.form['latitude']) if request.form['latitude'] else None
-    longitude = Decimal(request.form['longitude']) if request.form['longitude'] else None
+    address = string_form_value('address')
+    place_id = string_form_value('place_id')
+    zip_code = re.sub('[^0-9]', '', string_form_value('zip_code')) if string_form_value('zip_code') else None
+    state = enum_form_value(State, 'state')
+    city = string_form_value('city')
+    neighborhood = string_form_value('neighborhood')
+    street = string_form_value('street')
+    street_number = string_form_value('street_number')
+    address_complement = string_form_value('address_complement')
+    latitude = decimal_form_value('latitude')
+    longitude = decimal_form_value('longitud')
     point = Point(latitude=latitude, longitude=longitude) if latitude and longitude else None
     restaurant = Restaurant(id=uuid.uuid4(), user_id=user.id, category=category, name=name,
                             address=Address(street=street, number=street_number, neighborhood=neighborhood, city=city,
@@ -53,10 +51,8 @@ def add_restaurant():
     result = RestaurantService().add(restaurant, logo.read() if logo else None)
 
     if result.is_left():
-        available_categories = [category for category in Category]
         return render_template('restaurant/partials/add_restaurant_form.html', messages=result.left(),
-                               address=address, place_id=place_id, available_categories=available_categories,
-                               **_to_restaurant_form(restaurant))
+                               address=address, place_id=place_id, **_to_restaurant_form(restaurant))
     else:
         response = make_response()
         response.headers['HX-Redirect'] = url_for('main.load_add_working_hours', restaurant_id=restaurant.id)

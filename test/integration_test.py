@@ -107,6 +107,7 @@ class IntegrationTest(object):
         )
         buckets_serverless = [
             "RESTAURANT_LOGO_BUCKET_NAME",
+            "PRODUCT_IMAGE_BUCKET_NAME",
         ]
 
         for bucket_name in buckets_serverless:

@@ -5,7 +5,8 @@ from src.infrastructure.common.config import ENVIRONMENT
 
 
 def get_locale():
-    return request.accept_languages.best_match(['en'])
+    best_match = request.accept_languages.best_match(['en_US'])
+    return best_match if best_match else 'en_US'
 
 
 def create_app():

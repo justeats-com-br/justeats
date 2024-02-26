@@ -26,5 +26,11 @@ def text_for_key(key: str) -> str:
         return gettext('Document number already in use')
     elif key == 'invalid_image_type':
         return gettext('Invalid image type')
+    elif key == 'invalid_section_id':
+        return gettext('Invalid section')
+    elif key == 'min':
+        return gettext('Minimum value not reached')
+    elif key == 'invalid_id':
+        return gettext('Invalid id')
     else:
         raise ValueError(f'Unknown key: {key}')

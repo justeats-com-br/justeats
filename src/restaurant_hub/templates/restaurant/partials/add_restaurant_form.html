@@ -13,7 +13,7 @@
                 <label class="block text-sm font-medium mb-1" for="category">{{_('Category')}}</label>
                 <select id="category" name="category" class="form-select w-full">
                     <option value="">{{_('Select a category')}}</option>
-                    {% for available_category in available_categories %}
+                    {% for available_category in available_restaurant_categories %}
                     {% if available_category == category %}
                     <option value="{{available_category.value}}" selected>{{available_category.user_friendly_name()}}
                     </option>

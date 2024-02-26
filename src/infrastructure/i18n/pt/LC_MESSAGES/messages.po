@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-14 23:15-0300\n"
+"POT-Creation-Date: 2024-02-25 23:48-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -20,47 +20,60 @@ msgstr ""
 
 #: src/infrastructure/common/message_mapper.py:43
 #: src/infrastructure/common/message_mapper.py:45
+#: src/infrastructure/common/message_mapper.py:47
 msgid "Required field"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:47
+#: src/infrastructure/common/message_mapper.py:49
 msgid "Invalid recipe"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:49
+#: src/infrastructure/common/message_mapper.py:51
 msgid "Invalid value"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:51
+#: src/infrastructure/common/message_mapper.py:53
 msgid "Invalid prompt execution"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:53
+#: src/infrastructure/common/message_mapper.py:55
 msgid "Maximum length exceeded"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:55
+#: src/infrastructure/common/message_mapper.py:57
 msgid "Minimum length not reached"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:57
+#: src/infrastructure/common/message_mapper.py:59
 msgid "Invalid email"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:59
+#: src/infrastructure/common/message_mapper.py:61
 msgid "Email already in use"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:61
+#: src/infrastructure/common/message_mapper.py:63
 msgid "Invalid document number"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:63
+#: src/infrastructure/common/message_mapper.py:65
 msgid "Document number already in use"
 msgstr ""
 
-#: src/infrastructure/common/message_mapper.py:65
+#: src/infrastructure/common/message_mapper.py:67
 msgid "Invalid image type"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:69
+msgid "Invalid section"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:71
+msgid "Minimum value not reached"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:73
+msgid "Invalid id"
 msgstr ""
 
 #: src/restaurant_hub/application/controller/sign_in_controller.py:25
@@ -71,28 +84,101 @@ msgstr ""
 msgid "Access token not provided"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:52
-msgid "Close sidebar"
-msgstr ""
-
-#: src/restaurant_hub/templates/base/logged.html:135
-msgid "Expand / collapse sidebar"
-msgstr ""
-
-#: src/restaurant_hub/templates/base/logged.html:166
+#: src/restaurant_hub/templates/base/logged.html:53
 msgid "Open sidebar"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:190
+#: src/restaurant_hub/templates/base/logged.html:77
 msgid "My profile"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:213
+#: src/restaurant_hub/templates/base/logged.html:100
 msgid "Settings"
 msgstr ""
 
-#: src/restaurant_hub/templates/base/logged.html:219
+#: src/restaurant_hub/templates/base/logged.html:106
 msgid "Sign Out"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/catalog.html:3
+#: src/restaurant_hub/templates/catalog/product.html:3
+#: src/restaurant_hub/templates/catalog/section.html:3
+msgid "Add catalog"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/catalog.html:37
+#: src/restaurant_hub/templates/catalog/section.html:16
+msgid "Catalog"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/catalog.html:39
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:32
+msgid "Add section"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/catalog.html:45
+#: src/restaurant_hub/templates/catalog/product.html:37
+#: src/restaurant_hub/templates/catalog/section.html:22
+#: src/restaurant_hub/templates/recovery_password/recovery_password.html:13
+#: src/restaurant_hub/templates/restaurant/add_restaurant.html:44
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:43
+#: src/restaurant_hub/templates/sign_in/sign_in.html:55
+#: src/restaurant_hub/templates/sign_up/sign_up.html:14
+msgid "Loading"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/product.html:28
+msgid "Product"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:8
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:6
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:6
+#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
+msgid "Name"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:14
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:12
+#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:36
+msgid "Description"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:19
+msgid "Price"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:25
+msgid "Image"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:30
+msgid "Status"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:51
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:28
+msgid "Back"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:55
+msgid "Update product"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:55
+msgid "Add product"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:17
+msgid ""
+"Sort\n"
+"                order"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/sections.html:5
+msgid ""
+"Add\n"
+"            product"
 msgstr ""
 
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:3
@@ -101,14 +187,6 @@ msgstr ""
 
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:6
 msgid "Recovery your password"
-msgstr ""
-
-#: src/restaurant_hub/templates/recovery_password/recovery_password.html:13
-#: src/restaurant_hub/templates/restaurant/add_restaurant.html:41
-#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:40
-#: src/restaurant_hub/templates/sign_in/sign_in.html:55
-#: src/restaurant_hub/templates/sign_up/sign_up.html:14
-msgid "Loading"
 msgstr ""
 
 #: src/restaurant_hub/templates/recovery_password/partials/confirm_recovery_code.html:4
@@ -139,15 +217,10 @@ msgstr ""
 msgid "Add restaurant"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/add_restaurant.html:34
+#: src/restaurant_hub/templates/restaurant/add_restaurant.html:37
 msgid ""
 "Restaurant\n"
 "                        information"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:6
-#: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
-msgid "Name"
 msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:8
@@ -164,10 +237,6 @@ msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:28
 msgid "Document number"
-msgstr ""
-
-#: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:36
-msgid "Description"
 msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:38
@@ -201,7 +270,7 @@ msgstr ""
 msgid "Add working hours"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:34
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:37
 msgid "Working hours"
 msgstr ""
 
@@ -571,5 +640,26 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Working hours"
+#~ msgstr ""
+
+#~ msgid "Sort order"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Add\n"
+#~ "                            section"
+#~ msgstr ""
+
+#~ msgid "Cancel"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Sort\n"
+#~ "                                    order"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Add\n"
+#~ "                                section"
 #~ msgstr ""
 

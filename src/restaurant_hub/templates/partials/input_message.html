@@ -1,6 +1,6 @@
 {% macro input_message(messages, input_name) %}
 {% set filtered_input_messages = messages|selectattr('target', 'equalto', input_name) | list %}
 {% if filtered_input_messages %}
-<div><p class="mt-2 text-sm text-red-500">{{filtered_input_messages[0].message}}</p></div>
+<div class="form-error-message"><p class="mt-2 text-sm text-red-500">{{filtered_input_messages[0].message}}</p></div>
 {% endif %}
 {% endmacro %}

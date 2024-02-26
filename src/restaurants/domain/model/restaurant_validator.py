@@ -83,11 +83,11 @@ class RestaurantValidator:
             'state': {'required': True, 'empty': False},
             'street': {'required': True, 'empty': False, 'maxlength': 200},
             'number': {'required': True, 'empty': False, 'maxlength': 20},
-            'complement': {'required': False, 'empty': True, 'maxlength': 50},
+            'complement': {'required': False, 'nullable': True, 'empty': False, 'maxlength': 50},
             'document_number': {'required': True, 'empty': False, 'invalid_document_number': True,
                                 'unique_document_number': True},
             'logo': {'required': False, 'invalid_image_type': True},
-            'description': {'required': False, 'empty': False, 'maxlength': 300},
+            'description': {'required': False, 'nullable': True, 'empty': False, 'maxlength': 300},
         }
 
         validator = RestaurantValidations(self.restaurant_repository, self.document_type_service, validation_schema,

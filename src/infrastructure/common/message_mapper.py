@@ -39,6 +39,8 @@ class MessageMapper:
 
     @staticmethod
     def _to_message_text(key: str) -> str:
+        if key == 'required':
+            return gettext('Required field')
         if key == 'empty':
             return gettext('Required field')
         elif key == 'nullable':
@@ -63,5 +65,11 @@ class MessageMapper:
             return gettext('Document number already in use')
         elif key == 'invalid_image_type':
             return gettext('Invalid image type')
+        elif key == 'invalid_section_id':
+            return gettext('Invalid section')
+        elif key == 'min':
+            return gettext('Minimum value not reached')
+        elif key == 'invalid_id':
+            return gettext('Invalid id')
         else:
             raise ValueError(f'Unknown key: {key}')

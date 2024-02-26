@@ -1,6 +1,6 @@
 {% extends 'base/logged.html' %}
 
-{% block page_title %}{{_('Add working hours')}}{% endblock %}
+{% block page_title %}{{_('Add catalog')}}{% endblock %}
 
 {% block main_content %}
 <div class="relative flex">
@@ -12,7 +12,7 @@
 
             <!-- Progress bar -->
             <div class="px-4 pt-12 pb-8">
-                <div class="max-w-md mx-auto w-full">
+                <div class="max-w-4xl mx-auto w-full">
                     <div class="relative">
                         <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-slate-200 dark:bg-slate-700"
                              aria-hidden="true"></div>
@@ -20,10 +20,10 @@
                             <li class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-white dark:bg-slate-700 text-slate-500 dark:text-slate-400">
                                 1
                             </li>
-                            <li class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white">
+                            <li class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-white dark:bg-slate-700 text-slate-500 dark:text-slate-400">
                                 2
                             </li>
-                            <li class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-white dark:bg-slate-700 text-slate-500 dark:text-slate-400">
+                            <li class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white">
                                 3
                             </li>
                         </ul>
@@ -32,9 +32,11 @@
             </div>
 
             <div>
-                <div class="max-w-lg mx-auto">
+                <div class="max-w-4xl mx-auto">
 
-                    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{_('Working hours')}}</h1>
+                    <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-6">{{_('Catalog')}}</h1>
+                    <a href="/restaurants/{{restaurant_id}}/section"
+                       class="btn bg-indigo-500 hover:bg-indigo-600 text-white">{{_('Add section')}}</a>
 
                     <!-- loading overlay -->
                     <div class="absolute bg-white bg-opacity-60 z-10 h-full max-w-lg mx-auto w-full flex items-center justify-center"
@@ -47,8 +49,8 @@
                         </div>
                     </div>
 
-                    <!-- Form -->
-                    {% include 'restaurant/working_hours/partials/add_working_hours_form.html' %}
+                    <!-- Catalog's sections -->
+                    {% include 'catalog/partials/sections.html' %}
 
                 </div>
             </div>
@@ -57,14 +59,4 @@
 
     </div>
 </div>
-{% endblock %}
-
-{% block custom_scripts %}
-<script>
-    function addWorkingHourEntry() {
-        var container = document.getElementById('working-hours-container');
-        var entry = container.querySelector('.working-hour-entry').cloneNode(true);
-        container.appendChild(entry);
-    }
-</script>
 {% endblock %}
