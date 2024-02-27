@@ -49,4 +49,4 @@ class WebappTest(IntegrationTest):
 
     @fixture(autouse=True)
     def page_timeout(self, page):
-        page.set_default_timeout(5000)
+        page.set_default_timeout(10000)

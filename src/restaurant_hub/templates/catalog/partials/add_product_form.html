@@ -16,18 +16,18 @@
         {{input_message(messages, 'description')}}
     </div>
     <div>
-        <label class="block text-sm font-medium mb-1" for="name">{{_('Price')}}</label>
+        <label class="block text-sm font-medium mb-1" for="price">{{_('Price')}}</label>
         <input id="price" name="price" class="form-input w-full px-2 py-1" type="text"
                value="{{price/100 if price else ''}}" required/>
         {{input_message(messages, 'price')}}
     </div>
     <div>
-        <label class="block text-sm font-medium mb-1" for="name">{{_('Image')}}</label>
+        <label class="block text-sm font-medium mb-1" for="image">{{_('Image')}}</label>
         <input id="image" name="image" class="form-input w-full px-2 py-1" type="file"/>
         {{input_message(messages, 'image')}}
     </div>
     <div>
-        <label class="block text-sm font-medium mb-1" for="name">{{_('Status')}}</label>
+        <label class="block text-sm font-medium mb-1" for="status">{{_('Status')}}</label>
         <select id="status" name="status" class="form-input w-full px-2 py-1" required>
             {% for available_status in available_product_statuses %}
             {% if available_status == status %}
