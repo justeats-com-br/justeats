@@ -41,13 +41,13 @@ class RestaurantTable(Base):
     address_latitude = Column(DECIMAL, nullable=True)
     address_longitude = Column(DECIMAL, nullable=True)
     document_number = Column(String, nullable=False)
-    logo_url = Column(String, nullable=True)
+    logo_key = Column(String, nullable=True)
     description = Column(String, nullable=True)
 
     def __init__(self, id: UUID, user_id: UUID, category: str, name: str, address_street: str, address_number: str,
                  address_neighborhood: str, address_city: str, address_state: str, address_zip_code: str,
                  address_complement: Optional[str], address_latitude: Optional[str], address_longitude: Optional[str],
-                 document_number: str, logo_url: Optional[str], description: Optional[str]):
+                 document_number: str, logo_key: Optional[str], description: Optional[str]):
         self.id = id
         self.user_id = user_id
         self.category = category
@@ -62,7 +62,7 @@ class RestaurantTable(Base):
         self.address_latitude = address_latitude
         self.address_longitude = address_longitude
         self.document_number = document_number
-        self.logo_url = logo_url
+        self.logo_key = logo_key
         self.description = description
 
     def to_domain(self) -> Restaurant:
@@ -85,7 +85,7 @@ class RestaurantTable(Base):
                 )
             ),
             document_number=self.document_number,
-            logo_url=self.logo_url,
+            logo_key=self.logo_key,
             description=self.description
         )
 
@@ -106,6 +106,6 @@ class RestaurantTable(Base):
             address_latitude=restaurant.address.point.latitude if restaurant.address and restaurant.address.point else None,
             address_longitude=restaurant.address.point.longitude if restaurant.address and restaurant.address.point else None,
             document_number=restaurant.document_number,
-            logo_url=restaurant.logo_url,
+            logo_key=restaurant.logo_key,
             description=restaurant.description
         )

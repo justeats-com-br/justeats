@@ -58,7 +58,7 @@ class TestProductService:
 
         assert add_result.is_right()
         assert add_result.right() == product
-        assert product.image_url == 'http://bucket.s3.amazonaws.com/key'
+        assert product.image_key == str(product.id)
         product_repository.add.assert_called_once_with(product)
         s3_client.put_binary_object.assert_called_once_with(get_key('PRODUCT_IMAGE_BUCKET_NAME'), image,
                                                             str(product.id),
@@ -67,14 +67,14 @@ class TestProductService:
     def test_add_with_valid_product_and_no_image_should_return_product(self, product_validator, s3_client,
                                                                        product_repository, document_type_service,
                                                                        product_service):
-        product = ProductFactory(image_url=None)
+        product = ProductFactory(image_key=None)
         product_validator.validate_new_product = MagicMock(return_value=[])
 
         add_result = product_service.add(product, None)
 
         assert add_result.is_right()
         assert add_result.right() == product
-        assert product.image_url is None
+        assert product.image_key is None
         product_repository.add.assert_called_once_with(product)
         s3_client.put_binary_object.assert_not_called()
         document_type_service.load_image_type.assert_not_called()
@@ -107,7 +107,7 @@ class TestProductService:
 
         assert update_result.is_right()
         assert update_result.right() == product
-        assert product.image_url == 'http://bucket.s3.amazonaws.com/key'
+        assert product.image_key == str(product.id)
         product_repository.update.assert_called_once_with(product)
         s3_client.put_binary_object.assert_called_once_with(get_key('PRODUCT_IMAGE_BUCKET_NAME'), image,
                                                             str(product.id),
@@ -117,14 +117,14 @@ class TestProductService:
     def test_update_with_valid_product_and_no_image_should_return_product(self, product_validator, s3_client,
                                                                           product_repository, document_type_service,
                                                                           product_service):
-        product = ProductFactory(image_url=None)
+        product = ProductFactory(image_key=None)
         product_validator.validate_update_product = MagicMock(return_value=[])
 
         update_result = product_service.update(product, None)
 
         assert update_result.is_right()
         assert update_result.right() == product
-        assert product.image_url is None
+        assert product.image_key is None
         product_repository.update.assert_called_once_with(product)
         s3_client.put_binary_object.assert_not_called()
         document_type_service.load_image_type.assert_not_called()

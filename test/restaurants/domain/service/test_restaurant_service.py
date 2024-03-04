@@ -64,7 +64,7 @@ class TestRestaurantService:
 
         assert add_result.is_right()
         assert add_result.right() == restaurant
-        assert restaurant.logo_url == 'http://bucket.s3.amazonaws.com/key'
+        assert restaurant.logo_key == str(restaurant.id)
         restaurant_repository.add.assert_called_once_with(restaurant)
         s3_client.put_binary_object.assert_called_once_with(get_key('RESTAURANT_LOGO_BUCKET_NAME'), logo,
                                                             str(restaurant.id),

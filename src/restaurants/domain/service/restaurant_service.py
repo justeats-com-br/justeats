@@ -27,12 +27,13 @@ class RestaurantService:
 
         if logo:
             content_type = self.document_type_service.load_image_type(logo)
-            logo_url = self.s3_client.put_binary_object(
+            logo_key = str(restaurant.id)
+            self.s3_client.put_binary_object(
                 get_key('RESTAURANT_LOGO_BUCKET_NAME'),
                 logo,
-                str(restaurant.id),
+                logo_key,
                 content_type)
-            restaurant.logo_url = logo_url
+            restaurant.logo_key = logo_key
 
         self.restaurant_repository.add(restaurant)
         return Right(restaurant)

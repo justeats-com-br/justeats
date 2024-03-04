@@ -126,12 +126,12 @@ class Address(DomainModel):
 
 class Restaurant(DomainModel):
     def __init__(self, id: UUID, user_id: UUID, category: Category, name: str, address: Address,
-                 document_number: str, logo_url: Optional[str], description: Optional[str]):
+                 document_number: str, logo_key: Optional[str], description: Optional[str]):
         self.id = id
         self.user_id = user_id
         self.category = category
         self.name = name
         self.address = address
         self.document_number = document_number
-        self.logo_url = logo_url
+        self.logo_key = logo_key
         self.description = description

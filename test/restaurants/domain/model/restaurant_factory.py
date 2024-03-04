@@ -47,7 +47,7 @@ class RestaurantFactory(Factory):
     name = lazy_attribute(lambda o: fake.name())
     address = SubFactory(AddressFactory)
     document_number = lazy_attribute(lambda o: fake.cnpj().replace('.', '').replace('/', '').replace('-', ''))
-    logo_url = lazy_attribute(lambda o: fake.image_url())
+    logo_key = lazy_attribute(lambda o: str(o.id))
     description = lazy_attribute(lambda o: fake.text())
 
 
@@ -72,5 +72,5 @@ class RestaurantTableFactory(SQLAlchemyModelFactory):
     address_latitude = lazy_attribute(lambda o: fake.latitude())
     address_longitude = lazy_attribute(lambda o: fake.longitude())
     document_number = lazy_attribute(lambda o: fake.cnpj().replace('.', '').replace('/', '').replace('-', ''))
-    logo_url = lazy_attribute(lambda o: fake.image_url())
+    logo_key = lazy_attribute(lambda o: str(o.id))
     description = lazy_attribute(lambda o: fake.text())

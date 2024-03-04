@@ -34,3 +34,10 @@ class S3Client:
         )
         object_url = "http://{}.s3.amazonaws.com/{}".format(bucket_name, file_key)
         return object_url
+
+    def generate_presigned_url(self, bucket_name: str, file_key: str, expiration: int) -> str:
+        return self.s3_client.generate_presigned_url(
+            "get_object",
+            Params={"Bucket": bucket_name, "Key": file_key},
+            ExpiresIn=expiration,
+        )

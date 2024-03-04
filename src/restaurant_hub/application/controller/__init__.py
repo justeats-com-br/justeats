@@ -44,6 +44,7 @@ def get_currency_code():
     except Exception as e:
         return '$'
 
+
 @main.context_processor
 def inject_environment_variables():
     return dict(
@@ -61,4 +62,5 @@ from . import sign_up_controller
 from . import sign_in_controller
 from . import recovery_password_controller
 from . import restaurant_controller
+from . import working_hour_controller
 from . import catalog_controller

@@ -1,0 +1,78 @@
+{% from "partials/input_message.html" import input_message %}
+
+<form {{ 'hx-patch' if id else 'hx-post' }}="/products/{{product.id}}/product-variants" hx-swap="outerHTML" enctype="multipart/form-data">
+<input type="hidden" name="id" value="{{id}}"/>
+<input type="hidden" name="product_id" value="{{product.id}}"/>
+<div class="space-y-4">
+    <div>
+        <label class="block text-sm font-medium mb-1" for="name">{{_('Name')}}</label>
+        <input id="name" name="name" class="form-input w-full px-2 py-1" type="text" value="{{name}}" required/>
+        {{input_message(messages, 'name')}}
+    </div>
+    <div>
+        <label class="block text-sm font-medium mb-1"
+               for="description">{{_('Description')}}</label>
+        <textarea id="description" name="description" class="form-input w-full px-2 py-1">{{description}}</textarea>
+        {{input_message(messages, 'description')}}
+    </div>
+    <div>
+        <label class="block text-sm font-medium mb-1" for="price">{{_('Price')}}</label>
+        <input id="price" name="price" class="form-input w-full px-2 py-1" type="text"
+               value="{{price/100 if price else ''}}" required/>
+        {{input_message(messages, 'price')}}
+    </div>
+    <div>
+        <label class="block text-sm font-medium mb-1" for="image">{{_('Image')}}</label>
+        <input id="image" name="image" class="form-input w-full px-2 py-1" type="file" accept="image/*"/>
+        {% if image_url %}
+        <div x-data="{ loading: true, imageLoaded() { this.loading = false; } }">
+            <div class="w-16 h-16 flex items-center justify-center relative">
+                <svg x-show="loading" class="animate-spin w-8 h-8 fill-current shrink-0 absolute"
+                     viewBox="0 0 16 16">
+                    <path d="M8 16a7.928 7.928 0 01-3.428-.77l.857-1.807A6.006 6.006 0 0014 8c0-3.309-2.691-6-6-6a6.006 6.006 0 00-5.422 8.572l-1.806.859A7.929 7.929 0 010 8c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+                </svg>
+                <img x-show="!loading" x-on:load="imageLoaded" class="rounded-full w-16 h-16" src="{{image_url}}"
+                     alt="{{name}}"/>
+                <img x-show="loading" class="rounded-full w-16 h-16 opacity-0"
+                     src="/static/images/product_image_placeholder.png" alt="{{name}}"/>
+            </div>
+        </div>
+        {% endif %}
+        {{input_message(messages, 'image')}}
+    </div>
+    <div>
+        <label class="block text-sm font-medium mb-1" for="status">{{_('Status')}}</label>
+        <select id="status" name="status" class="form-input w-full px-2 py-1" required>
+            {% for available_status in available_product_statuses %}
+            {% if available_status == status %}
+            <option value="{{available_status.value}}" selected>
+                {{available_status.user_friendly_name()}}
+            </option>
+            {% else %}
+            <option value="{{available_status.value}}">
+                {{available_status.user_friendly_name()}}
+            </option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        {{input_message(messages, 'status')}}
+    </div>
+</div>
+<div class="flex items-center justify-between mt-6 mb-6">
+    <a href="{{url_for('main.load_update_product_in_section', section_id=product.section_id, product_id=product.id)}}"
+       class="btn border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300"
+       data-loading-disable>
+        {{_('Back')}}
+    </a>
+    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
+            data-loading-disable>
+        {{ _('Update product variant') if id else _('Add product variant') }}
+    </button>
+</div>
+
+{% for message in messages %}
+{% if message.target not in ['name','description','price','image','status'] %}
+<p class="mt-2 text-sm text-red-500">{{message.target}}</p>
+{% endif %}
+{% endfor %}
+</form>

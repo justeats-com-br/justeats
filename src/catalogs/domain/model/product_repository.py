@@ -40,7 +40,7 @@ class ProductTable(Base):
     name = Column(String, nullable=False)
     description = Column(String, nullable=True)
     price = Column(Integer, nullable=True)
-    image_url = Column(String, nullable=True)
+    image_key = Column(String, nullable=True)
     status = Column(String, nullable=False)
     variants = Column(JSON, nullable=False)
     modifiers = Column(JSON, nullable=False)
@@ -48,14 +48,14 @@ class ProductTable(Base):
     updated_at = Column(DateTime, nullable=False)
 
     def __init__(self, id: UUID, section_id: UUID, name: str, description: Optional[str], price: Optional[int],
-                 image_url: Optional[str], status: str, variants: json, modifiers: json, created_at: DateTime,
+                 image_key: Optional[str], status: str, variants: json, modifiers: json, created_at: DateTime,
                  updated_at: DateTime):
         self.id = id
         self.section_id = section_id
         self.name = name
         self.description = description
         self.price = price
-        self.image_url = image_url
+        self.image_key = image_key
         self.status = status
         self.variants = variants
         self.modifiers = modifiers
@@ -69,7 +69,7 @@ class ProductTable(Base):
             name=self.name,
             description=self.description,
             price=self.price,
-            image_url=self.image_url,
+            image_key=self.image_key,
             status=Status(self.status),
             variants=[self._to_variant_domain(record) for record in json.loads(self.variants)] if self.variants else [],
             modifiers=[self._to_modifier_domain(record) for record in
@@ -84,7 +84,7 @@ class ProductTable(Base):
             name=record['name'],
             description=record.get('description'),
             price=int(record['price']),
-            image_url=record.get('image_url')
+            image_key=record.get('image_key')
         )
 
     def _to_modifier_domain(self, record: dict[str, any]) -> Modifier:
@@ -113,7 +113,7 @@ class ProductTable(Base):
             name=product.name,
             description=product.description,
             price=product.price,
-            image_url=product.image_url,
+            image_key=product.image_key,
             status=product.status.value,
             variants=json.dumps(product.variants, cls=ObjectJsonEncoder),
             modifiers=json.dumps(product.modifiers, cls=ObjectJsonEncoder),

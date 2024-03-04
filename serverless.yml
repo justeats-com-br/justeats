@@ -21,6 +21,7 @@ provider:
     PLACES_API_KEY: ${env:PLACES_API_KEY}
     RESTAURANT_LOGO_BUCKET_NAME: ${self:custom.restaurantLogoBucketName}
     PRODUCT_IMAGE_BUCKET_NAME: ${self:custom.productImageBucketName}
+    PRODUCT_VARIANT_IMAGE_BUCKET_NAME: ${self:custom.productVariantImageBucketName}
 
   iamRoleStatements:
     - Effect: Allow
@@ -49,6 +50,7 @@ provider:
 custom:
   restaurantLogoBucketName: ${opt:stage, self:provider.stage}-justeats-restaurant-logos
   productImageBucketName: ${opt:stage, self:provider.stage}-justeats-product-images
+  productVariantImageBucketName: ${opt:stage, self:provider.stage}-justeats-product-variant-images
 
 resources:
   - ${file(serverless_resources/security_groups.yml)}

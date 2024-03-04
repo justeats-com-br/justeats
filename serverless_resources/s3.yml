@@ -8,3 +8,8 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: ${self:custom.productImageBucketName}
+
+  ProductVariantImageBucketS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: ${self:custom.productVariantImageBucketName}

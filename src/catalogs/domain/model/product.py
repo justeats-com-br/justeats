@@ -22,14 +22,14 @@ class Status(Enum):
 
 class Product(DomainModel):
     def __init__(self, id: UUID, section_id: UUID, name: str, description: Optional[str], price: Optional[int],
-                 image_url: Optional[str], status: Status, variants: List[ProductVariant], modifiers: List[Modifier],
+                 image_key: Optional[str], status: Status, variants: List[ProductVariant], modifiers: List[Modifier],
                  created_at: datetime, updated_at: datetime):
         self.id = id
         self.section_id = section_id
         self.name = name
         self.description = description
         self.price = price
-        self.image_url = image_url
+        self.image_key = image_key
         self.status = status
         self.variants = variants
         self.modifiers = modifiers

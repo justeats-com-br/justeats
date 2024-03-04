@@ -25,9 +25,9 @@ class ProductService:
         if messages:
             return Left(messages)
 
-        image_url = self._upload_image(product, image)
-        if image_url:
-            product.image_url = image_url
+        image_key = self._upload_image(product, image)
+        if image_key:
+            product.image_key = image_key
         self.product_repository.add(product)
         return Right(product)
 
@@ -36,19 +36,29 @@ class ProductService:
         if messages:
             return Left(messages)
 
-        image_url = self._upload_image(product, image)
-        if image_url:
-            product.image_url = image_url
+        image_key = self._upload_image(product, image)
+        if image_key:
+            product.image_key = image_key
         self.product_repository.update(product)
         return Right(product)
+
+    def generate_public_image_url(self, product: Product) -> Optional[str]:
+        if not product.image_key:
+            return None
+
+        one_hour = 3600
+        return self.s3_client.generate_presigned_url(get_key('PRODUCT_IMAGE_BUCKET_NAME'), product.image_key, one_hour)
 
     def _upload_image(self, product: Product, image: Optional[bytes]) -> Optional[str]:
         if image:
             content_type = self.document_type_service.load_image_type(image)
-            return self.s3_client.put_binary_object(
+            image_key = str(product.id)
+            self.s3_client.put_binary_object(
                 get_key('PRODUCT_IMAGE_BUCKET_NAME'),
                 image,
-                str(product.id),
+                image_key,
                 content_type)
+
+            return image_key
         else:
             return None

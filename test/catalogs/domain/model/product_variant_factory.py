@@ -18,4 +18,4 @@ class ProductVariantFactory(Factory):
     name = lazy_attribute(lambda o: fake.name())
     description = lazy_attribute(lambda o: fake.text())
     price = lazy_attribute(lambda o: random.randint(100, 10000))
-    image_url = lazy_attribute(lambda o: fake.image_url())
+    image_key = lazy_attribute(lambda o: str(o.id))
