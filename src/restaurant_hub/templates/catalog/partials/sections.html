@@ -1,7 +1,9 @@
 {% for section in sections %}
     <div class="my-8">
         <div class="flex">
-            <h2 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-0 mr-3">{{ section.name }}</h2>
+            <h2 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-0 mr-3">
+                <a href="/restaurants/{{ restaurant_id }}/sections/{{ section.id }}">{{ section.name }}</a>
+            </h2>
             <a href="/sections/{{ section.id }}/product" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">{{ _('Add
             product') }}</a>
         </div>
@@ -17,7 +19,8 @@
                                 <div class="inline-flex text-sm font-medium bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">
                                     {% if product.variants|length > 1 %}
                                         {% set sorted_variants = product.variants|sort(attribute='price') %}
-                                        {{ _('Starting at') }} {{ format_currency(sorted_variants.0.price/100, currency_code) }}
+                                        {{ _('Starting at') }}
+                                        {{ format_currency(sorted_variants.0.price/100, currency_code) }}
                                     {% else %}
                                         {{ format_currency(product.price/100, currency_code) }}
                                     {% endif %}

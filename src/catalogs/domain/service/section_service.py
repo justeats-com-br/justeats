@@ -20,3 +20,11 @@ class SectionService:
 
         self.section_repository.add(section)
         return Right(section)
+
+    def update(self, section: Section) -> Either[List[Message], Section]:
+        messages = self.section_validator.validate_update_section(section)
+        if messages:
+            return Left(messages)
+
+        self.section_repository.update(section)
+        return Right(section)

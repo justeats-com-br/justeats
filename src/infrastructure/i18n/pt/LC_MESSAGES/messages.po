@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-10 18:17-0300\n"
+"POT-Creation-Date: 2024-03-10 18:42-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -113,7 +113,7 @@ msgid "Catalog"
 msgstr ""
 
 #: src/restaurant_hub/templates/catalog/catalog.html:39
-#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:32
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:34
 msgid "Add section"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:8
 #: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:7
-#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:6
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:7
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:6
 #: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
 msgid "Name"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:14
 #: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:13
-#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:12
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:13
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:36
 msgid "Description"
 msgstr ""
@@ -179,7 +179,7 @@ msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:116
 #: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:64
-#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:28
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:30
 msgid "Back"
 msgstr ""
 
@@ -199,19 +199,23 @@ msgstr ""
 msgid "Add product variant"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:17
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:19
 msgid ""
 "Sort\n"
 "                order"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/sections.html:5
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:34
+msgid "Update section"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/sections.html:7
 msgid ""
 "Add\n"
 "            product"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/sections.html:20
+#: src/restaurant_hub/templates/catalog/partials/sections.html:22
 msgid "Starting at"
 msgstr ""
 

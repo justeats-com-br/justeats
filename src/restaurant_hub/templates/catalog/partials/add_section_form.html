@@ -1,41 +1,43 @@
 {% from "partials/input_message.html" import input_message %}
 
-<form hx-post="/restaurants/{{restaurant_id}}/sections" hx-swap="outerHTML">
-    <div class="space-y-4">
-        <div>
-            <label class="block text-sm font-medium mb-1" for="name">{{_('Name')}}</label>
-            <input id="name" name="name" class="form-input w-full px-2 py-1" type="text" value="{{name}}" required/>
-            {{input_message(messages, 'name')}}
-        </div>
-        <div>
-            <label class="block text-sm font-medium mb-1"
-                   for="description">{{_('Description')}}</label>
-            <textarea id="description" name="description" class="form-input w-full px-2 py-1">{{description}}</textarea>
-            {{input_message(messages, 'description')}}
-        </div>
-        <div>
-            <label class="block text-sm font-medium mb-1" for="sort_order">{{_('Sort
-                order')}}</label>
-            <input id="sort_order" name="sort_order" class="form-input w-full px-2 py-1"
-                   type="number" min="1" value="{{sort_order}}" required/>
-            {{input_message(messages, 'sort_order')}}
-        </div>
+<form {{ 'hx-patch' if id else 'hx-post' }}="/restaurants/{{ restaurant_id }}/sections" hx-swap="outerHTML">
+<input type="hidden" name="id" value="{{ id }}"/>
+<div class="space-y-4">
+    <div>
+        <label class="block text-sm font-medium mb-1" for="name">{{ _('Name') }}</label>
+        <input id="name" name="name" class="form-input w-full px-2 py-1" type="text" value="{{ name }}" required/>
+        {{ input_message(messages, 'name') }}
     </div>
-    <div class="flex items-center justify-between mt-6">
-        <a href="{{url_for('main.load_catalog', restaurant_id=restaurant_id)}}"
-           class="btn border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300"
-           data-loading-disable>
-            {{_('Back')}}
-        </a>
-        <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
-                data-loading-disable>
-            {{_('Add section')}}
-        </button>
+    <div>
+        <label class="block text-sm font-medium mb-1"
+               for="description">{{ _('Description') }}</label>
+        <textarea id="description" name="description"
+                  class="form-input w-full px-2 py-1">{{ description }}</textarea>
+        {{ input_message(messages, 'description') }}
     </div>
+    <div>
+        <label class="block text-sm font-medium mb-1" for="sort_order">{{ _('Sort
+                order') }}</label>
+        <input id="sort_order" name="sort_order" class="form-input w-full px-2 py-1"
+               type="number" min="1" value="{{ sort_order }}" required/>
+        {{ input_message(messages, 'sort_order') }}
+    </div>
+</div>
+<div class="flex items-center justify-between mt-6">
+    <a href="{{ url_for('main.load_catalog', restaurant_id=restaurant_id) }}"
+       class="btn border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300"
+       data-loading-disable>
+        {{ _('Back') }}
+    </a>
+    <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
+            data-loading-disable>
+        {{ _('Update section') if id else _('Add section') }}
+    </button>
+</div>
 
-    {% for message in messages %}
+{% for message in messages %}
     {% if message.target not in ['name', 'description', 'sort_order'] %}
-    <p class="mt-2 text-sm text-red-500">{{message.target}}</p>
+        <p class="mt-2 text-sm text-red-500">{{ message.target }}</p>
     {% endif %}
-    {% endfor %}
+{% endfor %}
 </form>

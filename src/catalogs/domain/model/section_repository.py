@@ -17,6 +17,9 @@ class SectionRepository:
     def add(self, section: Section) -> None:
         self.session.add(SectionTable.to_table(section))
 
+    def update(self, section: Section) -> None:
+        self.session.merge(SectionTable.to_table(section))
+
     def list_by_catalog_id(self, catalog_id: UUID) -> List[Section]:
         result = self.session.query(SectionTable).filter(SectionTable.catalog_id == catalog_id).all()
         return [record.to_domain() for record in result]
