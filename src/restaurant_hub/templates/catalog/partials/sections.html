@@ -1,49 +1,57 @@
 {% for section in sections %}
-<div class="my-8">
-    <div class="flex">
-        <h2 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-0 mr-3">{{section.name}}</h2>
-        <a href="/sections/{{section.id}}/product" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">{{_('Add
-            product')}}</a>
-    </div>
+    <div class="my-8">
+        <div class="flex">
+            <h2 class="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-0 mr-3">{{ section.name }}</h2>
+            <a href="/sections/{{ section.id }}/product" class="btn bg-indigo-500 hover:bg-indigo-600 text-white">{{ _('Add
+            product') }}</a>
+        </div>
 
-    <ul class="flex flex-wrap -mx-2">
-        {% for product in section_products[section.id] %}
-        <li class="sm:flex items-center px-2 w-1/2 cursor-pointer">
-            <a href="/sections/{{section.id}}/products/{{product.id}}">
-                <div class="sm:flex items-center p-4 space-x-4">
-                    <div class="sm:flex-grow">
-                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">{{product.name}}</h3>
-                        <div class="text-sm mb-2">{{product.description or ''}}</div>
-                        <div class="inline-flex text-sm font-medium bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">
-                            {{format_currency(product.price/100, currency_code)}}
-                        </div>
-                    </div>
-                    <div class="mt-4 mt-4 sm:mt-0 sm:ml-4 flex-shrink-0">
-                        {% if product_image_url[product.id] %}
-                        <div x-data="{ loading: true, imageLoaded() { this.loading = false; } }">
-                            <div class="w-32 h-32 flex items-center justify-center relative">
-                                <svg x-show="loading" class="animate-spin w-8 h-8 fill-current shrink-0 absolute"
-                                     viewBox="0 0 16 16">
-                                    <path d="M8 16a7.928 7.928 0 01-3.428-.77l.857-1.807A6.006 6.006 0 0014 8c0-3.309-2.691-6-6-6a6.006 6.006 0 00-5.422 8.572l-1.806.859A7.929 7.929 0 010 8c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
-                                </svg>
-                                <img x-show="!loading" x-on:load="imageLoaded" class="rounded-full w-32 h-32"
-                                     src="{{product_image_url[product.id]}}"
-                                     alt="{{product.name}}"/>
-                                <img x-show="loading" class="rounded-full w-32 h-32 opacity-0"
-                                     src="/static/images/product_image_placeholder.png" alt="{{product.name}}"/>
+        <ul class="flex flex-wrap -mx-2">
+            {% for product in section_products[section.id] %}
+                <li class="sm:flex items-center px-2 w-1/2 cursor-pointer">
+                    <a href="/sections/{{ section.id }}/products/{{ product.id }}">
+                        <div class="sm:flex items-center p-4 space-x-4">
+                            <div class="sm:flex-grow">
+                                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">{{ product.name }}</h3>
+                                <div class="text-sm mb-2">{{ product.description or '' }}</div>
+                                <div class="inline-flex text-sm font-medium bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">
+                                    {% if product.variants|length > 1 %}
+                                        {% set sorted_variants = product.variants|sort(attribute='price') %}
+                                        {{ _('Starting at') }} {{ format_currency(sorted_variants.0.price/100, currency_code) }}
+                                    {% else %}
+                                        {{ format_currency(product.price/100, currency_code) }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="mt-4 mt-4 sm:mt-0 sm:ml-4 flex-shrink-0">
+                                {% if product_image_url[product.id] %}
+                                    <div x-data="{ loading: true, imageLoaded() { this.loading = false; } }">
+                                        <div class="w-32 h-32 flex items-center justify-center relative">
+                                            <svg x-show="loading"
+                                                 class="animate-spin w-8 h-8 fill-current shrink-0 absolute"
+                                                 viewBox="0 0 16 16">
+                                                <path d="M8 16a7.928 7.928 0 01-3.428-.77l.857-1.807A6.006 6.006 0 0014 8c0-3.309-2.691-6-6-6a6.006 6.006 0 00-5.422 8.572l-1.806.859A7.929 7.929 0 010 8c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+                                            </svg>
+                                            <img x-show="!loading" x-on:load="imageLoaded"
+                                                 class="rounded-full w-32 h-32"
+                                                 src="{{ product_image_url[product.id] }}"
+                                                 alt="{{ product.name }}"/>
+                                            <img x-show="loading" class="rounded-full w-32 h-32 opacity-0"
+                                                 src="/static/images/product_image_placeholder.png"
+                                                 alt="{{ product.name }}"/>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <img class="rounded-full w-32" src="/static/images/product_image_placeholder.png"
+                                         alt="{{ product.name }}"/>
+                                {% endif %}
                             </div>
                         </div>
-                        {% else %}
-                        <img class="rounded-full w-32" src="/static/images/product_image_placeholder.png"
-                             alt="{{product.name}}"/>
-                        {% endif %}
-                    </div>
-                </div>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endfor %}
 
 <div id="add_product_form"></div>
