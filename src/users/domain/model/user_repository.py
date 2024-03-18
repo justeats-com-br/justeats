@@ -20,6 +20,10 @@ class UserRepository:
         result = self.session.query(UserTable).filter(UserTable.email == email).first()
         return result.to_domain() if result else None
 
+    def load(self, user_id: UUID) -> Optional[User]:
+        result = self.session.query(UserTable).filter(UserTable.id == user_id).first()
+        return result.to_domain() if result else None
+
 
 class UserTable(Base):
     __tablename__ = 'users'

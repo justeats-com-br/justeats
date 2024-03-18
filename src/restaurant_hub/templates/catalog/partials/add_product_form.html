@@ -107,6 +107,26 @@
                 </li>
             {% endfor %}
         </ul>
+
+        <div class="flex justify-between">
+            <h2 class="text-lg font-semibold">{{ _('Modifiers') }}</h2>
+            <a role="button" href="/products/{{ id }}/modifier"
+               class="btn dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500">{{ _('Add modifier') }}</a>
+        </div>
+        <ul>
+            {% for modifier in modifiers %}
+                <li class="items-center px-2 cursor-pointer">
+                    <a href="/products/{{ id }}/modifiers/{{ modifier.id }}">
+                        <div class="sm:flex items-center p-4">
+                            <div class="sm:flex-grow">
+                                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">{{ modifier.name }} ({{ modifier.options|length }})</h3>
+                                <div class="text-sm mb-2">{{ modifier.description or '' }}</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
 </div>
 <div class="flex items-center justify-between mt-6 mb-6">

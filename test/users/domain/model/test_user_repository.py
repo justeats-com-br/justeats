@@ -25,3 +25,10 @@ class TestUserRepository(IntegrationTest):
         result = repository.load_by_email(users_records[0].email)
 
         assert result == users_records[0].to_domain()
+
+    def test_should_load_by_id(self, repository):
+        users_records = UserTableFactory.create_batch(2)
+
+        result = repository.load(users_records[0].id)
+
+        assert result == users_records[0].to_domain()

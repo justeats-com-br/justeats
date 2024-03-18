@@ -1,9 +1,9 @@
 from functools import wraps
+from gettext import gettext
 
 from flask import request, render_template
-from flask_babel import gettext
 
-from src.infrastructure.common.message import MessageCategory, Message
+from src.infrastructure.common.message import Message, MessageCategory
 from src.users.domain.model.user_repository import UserRepository
 from src.users.domain.service.auth_service import AuthService
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-10 18:42-0300\n"
+"POT-Creation-Date: 2024-03-18 06:44-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -76,6 +76,10 @@ msgstr ""
 msgid "Invalid id"
 msgstr ""
 
+#: src/infrastructure/common/message_mapper.py:75
+msgid "Invalid modifier id"
+msgstr ""
+
 #: src/restaurant_hub/application/controller/sign_in_controller.py:25
 msgid "Your password has been updated. You can sign in now."
 msgstr ""
@@ -118,6 +122,8 @@ msgid "Add section"
 msgstr ""
 
 #: src/restaurant_hub/templates/catalog/catalog.html:45
+#: src/restaurant_hub/templates/catalog/modifier.html:45
+#: src/restaurant_hub/templates/catalog/option.html:53
 #: src/restaurant_hub/templates/catalog/product.html:37
 #: src/restaurant_hub/templates/catalog/product_variant.html:45
 #: src/restaurant_hub/templates/catalog/section.html:22
@@ -129,6 +135,26 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
+#: src/restaurant_hub/templates/catalog/modifier.html:3
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:63
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:114
+msgid "Add modifier"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/modifier.html:36
+msgid "Modifier"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/option.html:3
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:34
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:32
+msgid "Add option"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/option.html:44
+msgid "Option"
+msgstr ""
+
 #: src/restaurant_hub/templates/catalog/product.html:28
 msgid "Product"
 msgstr ""
@@ -137,6 +163,8 @@ msgstr ""
 msgid "Product Variant"
 msgstr ""
 
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:7
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:7
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:8
 #: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:7
 #: src/restaurant_hub/templates/catalog/partials/add_section_form.html:7
@@ -145,6 +173,8 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:13
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:13
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:14
 #: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:13
 #: src/restaurant_hub/templates/catalog/partials/add_section_form.html:13
@@ -152,9 +182,38 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:18
+msgid "Minimum options"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:24
+msgid "Maximum options"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:32
+msgid "Options"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:59
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:28
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:136
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:64
+#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:30
+msgid "Back"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:63
+msgid "Update modifier"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:18
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:19
 #: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:18
 msgid "Price"
+msgstr ""
+
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:32
+msgid "Update option"
 msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_product_form.html:25
@@ -177,17 +236,15 @@ msgid ""
 "            product variant"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:116
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:64
-#: src/restaurant_hub/templates/catalog/partials/add_section_form.html:30
-msgid "Back"
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:112
+msgid "Modifiers"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:120
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:140
 msgid "Update product"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:120
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:140
 msgid "Add product"
 msgstr ""
 

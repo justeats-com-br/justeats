@@ -60,11 +60,11 @@
 {% endblock %}
 
 {% block custom_scripts %}
-<script>
-    function addWorkingHourEntry() {
-        var container = document.getElementById('working-hours-container');
-        var entry = container.querySelector('.working-hour-entry').cloneNode(true);
-        container.appendChild(entry);
-    }
-</script>
+    <script>
+        function addWorkingHourEntry() {
+            var container = document.getElementById('working-hours-container');
+            var entry = container.querySelector('.working-hour-entry').cloneNode(true);
+            container.appendChild(entry);
+        }
+    </script>
 {% endblock %}

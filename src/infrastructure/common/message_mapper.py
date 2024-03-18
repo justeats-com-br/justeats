@@ -25,7 +25,7 @@ class MessageMapper:
                 acc.extend(MessageMapper._to_message(child_error, acc))
             return acc
         else:
-            if error.constraint:
+            if error.constraint is not None and error.constraint is not False:
                 args = error.constraint if isinstance(error.constraint, List) else [error.constraint]
             else:
                 args = None
@@ -71,5 +71,7 @@ class MessageMapper:
             return gettext('Minimum value not reached')
         elif key == 'invalid_id':
             return gettext('Invalid id')
+        elif key == 'invalid_modifier_id':
+            return gettext('Invalid modifier id')
         else:
             raise ValueError(f'Unknown key: {key}')

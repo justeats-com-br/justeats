@@ -1,0 +1,60 @@
+{% extends 'base/logged.html' %}
+
+{% block page_title %}{{ _('Add modifier') }}{% endblock %}
+
+{% block main_content %}
+    <div class="relative flex">
+
+        <!-- Content -->
+        <div class="w-full">
+
+            <div class="min-h-[100dvh] h-full flex flex-col after:flex-1">
+
+                <div>
+                    <div class="max-w-lg mx-auto mt-4">
+
+                        <div class="text-left mb-4">
+                            <!-- Start -->
+                            <ul class="inline-flex flex-wrap text-xl font-bold">
+                                <li class="flex items-center">
+                                    <a class="text-black dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500"
+                                       href="{{ url_for('main.load_catalog', restaurant_id=restaurant_id) }}">{{ section.name }}</a>
+                                    <svg class="h-4 w-4 fill-current text-slate-400 dark:text-slate-600 mx-3"
+                                         viewBox="0 0 16 16">
+                                        <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z"/>
+                                    </svg>
+                                </li>
+                                <li class="flex items-center">
+                                    <a class="text-black dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-500"
+                                       href="{{ url_for('main.load_update_product_in_section', section_id=section.id, product_id=product.id) }}">{{ product.name }}</a>
+                                    <svg class="h-4 w-4 fill-current text-slate-400 dark:text-slate-600 mx-3"
+                                         viewBox="0 0 16 16">
+                                        <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z"/>
+                                    </svg>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-black dark:text-slate-400">{{ _('Modifier') if not id else name }}</span>
+                                </li>
+                            </ul>
+                            <!-- End -->
+                        </div>
+                        <!-- loading overlay -->
+                        <div class="absolute bg-white bg-opacity-60 z-10 h-full max-w-lg mx-auto w-full flex items-center justify-center"
+                             data-loading="flex">
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">{{ _('Loading') }}</span>
+                                <svg class="animate-spin w-4 h-4 fill-current shrink-0" viewBox="0 0 16 16">
+                                    <path d="M8 16a7.928 7.928 0 01-3.428-.77l.857-1.807A6.006 6.006 0 0014 8c0-3.309-2.691-6-6-6a6.006 6.006 0 00-5.422 8.572l-1.806.859A7.929 7.929 0 010 8c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        {% include 'catalog/partials/add_modifier_form.html' %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

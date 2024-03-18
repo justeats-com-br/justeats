@@ -32,5 +32,7 @@ def text_for_key(key: str) -> str:
         return gettext('Minimum value not reached')
     elif key == 'invalid_id':
         return gettext('Invalid id')
+    elif key == 'invalid_modifier_id':
+        return gettext('Invalid modifier id')
     else:
         raise ValueError(f'Unknown key: {key}')
