@@ -64,3 +64,8 @@ from . import recovery_password_controller
 from . import restaurant_controller
 from . import working_hour_controller
 from . import catalog_controller
+from . import modifier_controller
+from . import modifier_option_controller
+from . import product_controller
+from . import product_variant_controller
+from . import section_controller
