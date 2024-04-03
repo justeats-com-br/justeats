@@ -22,7 +22,7 @@ class CatalogRepository:
         return result.to_domain() if result else None
 
     def load(self, catalog_id: UUID) -> Optional[Catalog]:
-        result = self.session.query(CatalogTable).filter(CatalogTable.id == catalog_id).first()
+        result = self.session.query(CatalogTable).get(catalog_id)
         return result.to_domain() if result else None
 
 

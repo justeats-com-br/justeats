@@ -29,7 +29,7 @@ class ProductRepository:
         self.session.merge(ProductTable.to_table(product))
 
     def load(self, product_id: UUID) -> Optional[Product]:
-        result = self.session.query(ProductTable).filter(ProductTable.id == product_id).first()
+        result = self.session.query(ProductTable).get(product_id)
         return result.to_domain() if result else None
 
 

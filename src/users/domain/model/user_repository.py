@@ -21,7 +21,7 @@ class UserRepository:
         return result.to_domain() if result else None
 
     def load(self, user_id: UUID) -> Optional[User]:
-        result = self.session.query(UserTable).filter(UserTable.id == user_id).first()
+        result = self.session.query(UserTable).get(user_id)
         return result.to_domain() if result else None
 
 

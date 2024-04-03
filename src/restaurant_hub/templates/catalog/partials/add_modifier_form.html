@@ -15,13 +15,13 @@
         {{ input_message(messages, 'description') }}
     </div>
     <div>
-        <label class="block text-sm font-medium mb-1" for="price">{{ _('Minimum options') }}</label>
+        <label class="block text-sm font-medium mb-1" for="minimum_options">{{ _('Minimum options') }}</label>
         <input id="minimum_options" name="minimum_options" class="form-input w-full px-2 py-1" type="number"
                value="{{ minimum_options }}" required/>
         {{ input_message(messages, 'minimum_options') }}
     </div>
     <div>
-        <label class="block text-sm font-medium mb-1" for="price">{{ _('Maximum options') }}</label>
+        <label class="block text-sm font-medium mb-1" for="maximum_options">{{ _('Maximum options') }}</label>
         <input id="maximum_options" name="maximum_options" class="form-input w-full px-2 py-1" type="number"
                value="{{ maximum_options }}" required/>
         {{ input_message(messages, 'maximum_options') }}
