@@ -58,14 +58,15 @@ class TestDeliveryMethodValidator:
                                    args=[delivery_type for delivery_type in DeliveryType])
         self._validate_delivery_method_and_expect_message(validator, delivery_method, expected_message)
 
-    def test_delivery_type_should_be_invalid_when_already_exists_for_restaurant(self, validator,
+    def test_delivery_type_should_be_invalid_when_already_exists_for_restaurant_when_adding(self, validator,
                                                                                 delivery_method_repository):
         delivery_method_repository.load_by_restaurant_and_delivery_type = MagicMock(
             return_value=DeliveryMethodFactory())
         delivery_method = DeliveryMethodFactory()
         expected_message = Message(category=MessageCategory.VALIDATION, target='delivery_type',
                                    message=text_for_key('existing_delivery_type'), key='existing_delivery_type')
-        self._validate_delivery_method_and_expect_message(validator, delivery_method, expected_message)
+        messages = validator.validate_new_delivery_method(delivery_method)
+        assert messages == [expected_message]
 
     def test_delivery_radius_should_be_required(self, validator):
         delivery_method = DeliveryMethodFactory(delivery_radius=None)
