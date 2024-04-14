@@ -32,7 +32,7 @@ def add_option_to_modifier(product_id: str, modifier_id: str):
 
     name = string_form_value('name')
     description = string_form_value('description')
-    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') else None
+    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') is not None else None
     option = ModifierOption(
         id=uuid.uuid4(),
         name=name,
@@ -85,7 +85,7 @@ def update_option_in_modifier(product_id: str, modifier_id: str):
         return response
     name = string_form_value('name')
     description = string_form_value('description')
-    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') else None
+    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') is not None else None
     option.name = name
     option.description = description
     option.price = price

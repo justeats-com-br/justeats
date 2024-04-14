@@ -1,4 +1,5 @@
 {% from "partials/input_message.html" import input_message %}
+{% from "partials/currency_input_value.html" import currency_input_value %}
 
 <form {{ 'hx-patch' if id else 'hx-post' }}="/sections/{{ section.id }}/products" hx-swap="outerHTML" enctype="multipart/form-data">
 <input type="hidden" name="id" value="{{ id }}"/>
@@ -18,7 +19,7 @@
     <div>
         <label class="block text-sm font-medium mb-1" for="price">{{ _('Price') }}</label>
         <input id="price" name="price" class="form-input w-full px-2 py-1" type="text"
-               value="{{ price/100 if price else '' }}" required/>
+               value="{{ currency_input_value(price) }}" required/>
         {{ input_message(messages, 'price') }}
     </div>
     <div>

@@ -1,0 +1,74 @@
+{% from "partials/input_message.html" import input_message %}
+{% from "partials/currency_input_value.html" import currency_input_value %}
+
+<form {{ 'hx-patch' if id else 'hx-post' }}="/restaurants/{{ restaurant_id }}/delivery-methods" hx-swap="outerHTML"
+      xmlns="http://www.w3.org/1999/html"
+      class="mb-6">
+    <input type="hidden" name="id" value="{{ id }}"/>
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-1" for="delivery_type">{{ _('Delivery type') }}</label>
+            <select id="delivery_type" name="delivery_type" class="form-input w-full px-2 py-1" required>
+                {% for available_delivery_type in available_delivery_types %}
+                    {% if available_delivery_type == delivery_type %}
+                        <option value="{{ available_delivery_type.value }}" selected>
+                            {{ available_delivery_type.user_friendly_name() }}
+                        </option>
+                    {% else %}
+                        <option value="{{ available_delivery_type.value }}">
+                            {{ available_delivery_type.user_friendly_name() }}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            {{ input_message(messages, 'delivery_type') }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="delivery_radius">{{ _('Delivery radius') }}</label>
+            <div class="relative">
+                <input id="delivery_radius" name="delivery_radius" class="form-input w-full px-2 py-1" type="number"
+                       value="{{ delivery_radius }}" required>
+                <div class="absolute inset-0 left-auto flex items-center pointer-events-none">
+                    <span class="text-sm text-slate-400 dark:text-slate-500 font-medium px-3">{{ _('Km') }}</span>
+                </div>
+            </div>
+            {{ input_message(messages, 'delivery_radius') }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1" for="delivery_fee">{{ _('Delivery fee') }}</label>
+            <input id="delivery_fee" name="delivery_fee" class="form-input w-full px-2 py-1" type="text"
+                   value="{{ currency_input_value(delivery_fee) }}" required/>
+            {{ input_message(messages, 'delivery_fee') }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1"
+                   for="estimated_delivery_time">{{ _('Estimated delivery time') }}</label>
+            <div class="relative">
+                <input id="estimated_delivery_time" name="estimated_delivery_time" class="form-input w-full px-2 py-1"
+                       type="number"
+                       value="{{ estimated_delivery_time }}" required/>
+                <div class="absolute inset-0 left-auto flex items-center pointer-events-none">
+                    <span class="text-sm text-slate-400 dark:text-slate-500 font-medium px-3">{{ _('Minutes') }}</span>
+                </div>
+            </div>
+            {{ input_message(messages, 'estimated_delivery_time') }}
+        </div>
+    </div>
+    <div class="flex items-center justify-between mt-6 mb-6">
+        <a href="{{ url_for('main.list_restaurant_delivery_methods', restaurant_id=restaurant_id) }}"
+           class="btn border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300"
+           data-loading-disable>
+            {{ _('Back') }}
+        </a>
+        <button type="submit" class="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3"
+                data-loading-disable>
+            {{ _('Update delivery method') if id else _('Add delivery method') }}
+        </button>
+    </div>
+
+    {% for message in messages %}
+        {% if message.target not in ['delivery_type','delivery_radius','delivery_fee','estimated_delivery_time'] %}
+            <p class="mt-2 text-sm text-red-500">{{ message.target }}</p>
+        {% endif %}
+    {% endfor %}
+</form>

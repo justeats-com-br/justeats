@@ -43,7 +43,7 @@ def add_product(section_id: str):
     restaurant_id = CatalogRepository().load(section.catalog_id).restaurant_id
     name = string_form_value('name')
     description = string_form_value('description')
-    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') else None
+    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') is not None else None
     image = request.files['image'] if 'image' in request.files else None
     status = enum_form_value(Status, 'status')
     product = Product(id=uuid.uuid4(), section_id=section_id, name=name, description=description, price=price,
@@ -75,7 +75,7 @@ def update_product(section_id: str):
 
     name = string_form_value('name')
     description = string_form_value('description')
-    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') else None
+    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') is not None else None
     image = request.files['image'] if 'image' in request.files else None
     status = enum_form_value(Status, 'status')
     product.name = name

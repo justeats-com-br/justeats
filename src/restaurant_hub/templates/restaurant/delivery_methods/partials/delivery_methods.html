@@ -1,0 +1,20 @@
+<div class="my-8">
+    <ul class="flex flex-wrap -mx-2">
+        {% for delivery_method in delivery_methods %}
+            <li class="sm:flex items-center px-2 w-1/2 cursor-pointer">
+                <a href="/restaurants/{{ restaurant_id }}/delivery-methods/{{ delivery_method.id }}">
+                    <div class="sm:flex items-center p-4 space-x-4">
+                        <div class="sm:flex-grow">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-1">{{ delivery_method.delivery_type.user_friendly_name() }}</h3>
+                            <div class="text-sm mb-2">{{ delivery_method.delivery_radius }} {{ _('Km') }}
+                                - {{ delivery_method.estimated_delivery_time }} {{ _('Minutes') }}</div>
+                            <div class="inline-flex text-sm font-medium bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400 rounded-full text-center px-2 py-0.5">
+                                {{ format_currency(delivery_method.delivery_fee/100, currency_code) }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

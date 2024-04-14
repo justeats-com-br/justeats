@@ -9,23 +9,22 @@ from src.catalogs.domain.model.product import Status
 from src.infrastructure.common.config import ENVIRONMENT, get_key
 from src.infrastructure.database.connection_factory import Session
 from src.restaurant_hub.app import get_locale
+from src.restaurants.domain.model.delivery_method import DeliveryType
 from src.restaurants.domain.model.restaurant import Category
 
 main = Blueprint('main', __name__)
 
 int_form_value = lambda field_name: int(request.form[field_name]) if field_name in request.form and request.form[
-    field_name] else None
+    field_name] is not None else None
 
 decimal_form_value = lambda field_name: Decimal(request.form[field_name]) if field_name in request.form and \
-                                                                             request.form[field_name] else None
+                                                                             request.form[
+                                                                                 field_name] is not None else None
 
 string_form_value = lambda field_name: request.form[field_name] if field_name in request.form and request.form[
     field_name] else None
 
 enum_form_value = lambda enum, field_name: enum[request.form[field_name]] if field_name in request.form and \
-                                                                             request.form[field_name] else None
-
-decimal_form_value = lambda field_name: Decimal(request.form[field_name]) if field_name in request.form and \
                                                                              request.form[field_name] else None
 
 
@@ -54,6 +53,7 @@ def inject_environment_variables():
         currency_code=get_currency_code(),
         available_restaurant_categories=[category for category in Category],
         available_product_statuses=[status for status in Status],
+        available_delivery_types=[delivery_type for delivery_type in DeliveryType],
     )
 
 
@@ -69,3 +69,4 @@ from . import modifier_option_controller
 from . import product_controller
 from . import product_variant_controller
 from . import section_controller
+from . import delivery_method_controller

@@ -39,7 +39,7 @@ def add_product_variant(product_id: str):
     product = ProductRepository().load(product_id)
     name = string_form_value('name')
     description = string_form_value('description')
-    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') else None
+    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') is not None else None
     image = request.files['image'] if 'image' in request.files else None
     product_variant = ProductVariant(
         id=uuid.uuid4(),
@@ -50,6 +50,7 @@ def add_product_variant(product_id: str):
     result = ProductVariantService().add(product_variant, product, image.read() if image else None)
 
     if result.is_left():
+        product_variant.id = None
         return render_template('catalog/partials/add_product_variant_form.html', messages=result.left(),
                                product=product,
                                **_to_product_variant_form(product_variant))
@@ -73,7 +74,7 @@ def update_product_variant(product_id: str):
         return response
     name = string_form_value('name')
     description = string_form_value('description')
-    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') else None
+    price = int(decimal_form_value('price') * 100) if decimal_form_value('price') is not None else None
     image = request.files['image'] if 'image' in request.files else None
     product_variant.name = name
     product_variant.description = description

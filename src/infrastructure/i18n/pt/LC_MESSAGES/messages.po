@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-04-03 19:49-0300\n"
+"POT-Creation-Date: 2024-04-13 21:20-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -111,33 +111,39 @@ msgstr ""
 msgid "Add catalog"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/catalog.html:37
+#: src/restaurant_hub/templates/catalog/catalog.html:40
 #: src/restaurant_hub/templates/catalog/section.html:16
 msgid "Catalog"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/catalog.html:39
+#: src/restaurant_hub/templates/catalog/catalog.html:42
 #: src/restaurant_hub/templates/catalog/partials/add_section_form.html:34
 msgid "Add section"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/catalog.html:45
+#: src/restaurant_hub/templates/catalog/catalog.html:48
 #: src/restaurant_hub/templates/catalog/modifier.html:45
 #: src/restaurant_hub/templates/catalog/option.html:53
 #: src/restaurant_hub/templates/catalog/product.html:37
 #: src/restaurant_hub/templates/catalog/product_variant.html:45
 #: src/restaurant_hub/templates/catalog/section.html:22
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:13
-#: src/restaurant_hub/templates/restaurant/add_restaurant.html:44
-#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:43
+#: src/restaurant_hub/templates/restaurant/add_restaurant.html:47
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_method.html:29
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_methods.html:48
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:46
 #: src/restaurant_hub/templates/sign_in/sign_in.html:55
 #: src/restaurant_hub/templates/sign_up/sign_up.html:14
 msgid "Loading"
 msgstr ""
 
+#: src/restaurant_hub/templates/catalog/catalog.html:64
+msgid "Configure delivery methods"
+msgstr ""
+
 #: src/restaurant_hub/templates/catalog/modifier.html:3
 #: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:63
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:114
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:115
 msgid "Add modifier"
 msgstr ""
 
@@ -147,7 +153,7 @@ msgstr ""
 
 #: src/restaurant_hub/templates/catalog/option.html:3
 #: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:34
-#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:32
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:33
 msgid "Add option"
 msgstr ""
 
@@ -164,9 +170,9 @@ msgid "Product Variant"
 msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:7
-#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:7
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:8
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:7
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:8
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:9
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:8
 #: src/restaurant_hub/templates/catalog/partials/add_section_form.html:7
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:6
 #: src/restaurant_hub/templates/sign_up/partials/sign_up_form.html:11
@@ -174,9 +180,9 @@ msgid "Name"
 msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:13
-#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:13
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:14
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:13
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:14
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:15
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:14
 #: src/restaurant_hub/templates/catalog/partials/add_section_form.html:13
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:36
 msgid "Description"
@@ -195,10 +201,11 @@ msgid "Options"
 msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/add_modifier_form.html:59
-#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:28
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:136
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:64
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:29
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:137
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:65
 #: src/restaurant_hub/templates/catalog/partials/add_section_form.html:30
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:61
 msgid "Back"
 msgstr ""
 
@@ -206,53 +213,53 @@ msgstr ""
 msgid "Update modifier"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:18
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:19
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:18
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:19
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:20
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:19
 msgid "Price"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:32
+#: src/restaurant_hub/templates/catalog/partials/add_option_form.html:33
 msgid "Update option"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:25
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:24
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:26
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:25
 msgid "Image"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:47
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:43
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:48
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:44
 msgid "Status"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:65
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:66
 msgid "Product Variants"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:67
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:68
 msgid ""
 "Add\n"
 "            product variant"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:112
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:113
 msgid "Modifiers"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:140
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:141
 msgid "Update product"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:140
+#: src/restaurant_hub/templates/catalog/partials/add_product_form.html:141
 msgid "Add product"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:68
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:69
 msgid "Update product variant"
 msgstr ""
 
-#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:68
+#: src/restaurant_hub/templates/catalog/partials/add_product_variant_form.html:69
 msgid "Add product variant"
 msgstr ""
 
@@ -312,10 +319,55 @@ msgstr ""
 msgid "Add restaurant"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/add_restaurant.html:37
+#: src/restaurant_hub/templates/restaurant/add_restaurant.html:40
 msgid ""
 "Restaurant\n"
 "                        information"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_method.html:3
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_methods.html:3
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_methods.html:42
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:65
+msgid "Add delivery method"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_method.html:20
+msgid "Delivery method"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_methods.html:40
+msgid "Delivery methods"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:10
+msgid "Delivery type"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:27
+msgid "Delivery radius"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:32
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/delivery_methods.html:9
+msgid "Km"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:38
+msgid "Delivery fee"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:45
+msgid "Estimated delivery time"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:51
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/delivery_methods.html:10
+msgid "Minutes"
+msgstr ""
+
+#: src/restaurant_hub/templates/restaurant/delivery_methods/partials/add_delivery_method_form.html:65
+msgid "Update delivery method"
 msgstr ""
 
 #: src/restaurant_hub/templates/restaurant/partials/add_restaurant_form.html:8
@@ -365,7 +417,7 @@ msgstr ""
 msgid "Add working hours"
 msgstr ""
 
-#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:37
+#: src/restaurant_hub/templates/restaurant/working_hours/add_working_hours.html:40
 msgid "Working hours"
 msgstr ""
 

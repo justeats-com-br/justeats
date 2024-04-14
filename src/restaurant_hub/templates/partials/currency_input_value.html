@@ -1,0 +1,7 @@
+{% macro currency_input_value(value) %}
+    {%- if value == 0 -%}
+        0
+    {%- else -%}
+        {{ value/100 if value else '' }}
+    {%- endif -%}
+{% endmacro %}
