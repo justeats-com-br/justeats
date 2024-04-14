@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-04-14 18:43-0300\n"
+"POT-Creation-Date: 2024-04-14 20:20-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -135,6 +135,7 @@ msgstr ""
 #: src/restaurant_hub/templates/catalog/product.html:37
 #: src/restaurant_hub/templates/catalog/product_variant.html:45
 #: src/restaurant_hub/templates/catalog/section.html:22
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:49
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:13
 #: src/restaurant_hub/templates/restaurant/add_restaurant.html:47
 #: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_method.html:29
@@ -289,6 +290,36 @@ msgstr ""
 
 #: src/restaurant_hub/templates/catalog/partials/sections.html:22
 msgid "Starting at"
+msgstr ""
+
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:3
+msgid "Add payment receive account"
+msgstr ""
+
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:43
+msgid "Payment receive account"
+msgstr ""
+
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:66
+#: src/restaurant_hub/templates/restaurant/delivery_methods/delivery_methods.html:65
+msgid "Configure payment receive account"
+msgstr ""
+
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:67
+msgid ""
+"To ensure that you receive payments from your orders promptly, please "
+"configure your account settings. You will need to enter specific details "
+"about your restaurant as well as your banking information. This "
+"information is crucial for processing transactions and transferring "
+"earnings directly to your account."
+msgstr ""
+
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:74
+msgid "Configure payment receive information"
+msgstr ""
+
+#: src/restaurant_hub/templates/payment_receive_account/add_payment_receive_account.html:87
+msgid "Payment receive account configured with success."
 msgstr ""
 
 #: src/restaurant_hub/templates/recovery_password/recovery_password.html:3
