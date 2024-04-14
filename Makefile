@@ -53,7 +53,7 @@ circleci/db/migrate:
 #   make circleci/test
 #
 circleci/test:
-	py.test --cov=src/infrastructure --cov=src/restaurant_hub --cov=src/catalogs --cov=src/restaurants --cov-report=xml:coverage-reports/coverage.xml test -n 10 -p no:warnings --dist loadscope --max-worker-restart 0
+	py.test --cov=src/infrastructure --cov=src/restaurant_hub --cov=src/catalogs --cov=src/restaurants --cov=src/users --cov=src/payments --cov-report=xml:coverage-reports/coverage.xml test -n 10 -p no:warnings --dist loadscope --max-worker-restart 0
 
 # Run tests in local environment
 #
@@ -63,7 +63,7 @@ test: dependencies/services test/run dependencies/clean/services
 test/run:
 	( \
 		. $(PYTHON_BIN)/activate; \
-		py.test --cov=src/infrastructure --cov=src/restaurant_hub --cov=src/catalogs --cov=src/restaurants --cov-report=xml:coverage-reports/coverage.xml test -n 10 -p no:warnings --dist loadscope --max-worker-restart 0; \
+		py.test --cov=src/infrastructure --cov=src/restaurant_hub --cov=src/catalogs --cov=src/restaurants --cov=src/users --cov=src/payments --cov-report=xml:coverage-reports/coverage.xml test -n 10 -p no:warnings --dist loadscope --max-worker-restart 0; \
 	)
 
 # Run playwright codegen

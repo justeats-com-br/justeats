@@ -22,6 +22,7 @@ provider:
     RESTAURANT_LOGO_BUCKET_NAME: ${self:custom.restaurantLogoBucketName}
     PRODUCT_IMAGE_BUCKET_NAME: ${self:custom.productImageBucketName}
     PRODUCT_VARIANT_IMAGE_BUCKET_NAME: ${self:custom.productVariantImageBucketName}
+    STRIPE_API_KEY: ${env:STRIPE_API_KEY}
 
   iamRoleStatements:
     - Effect: Allow

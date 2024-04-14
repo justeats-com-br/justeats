@@ -55,6 +55,17 @@
                         <!-- Restaurant's delivery methods -->
                         {% include 'restaurant/delivery_methods/partials/delivery_methods.html' %}
 
+                        {% if delivery_methods %}
+                            <div class="max-w-4xl mx-auto p-4 text-right">
+                                <a href="{{ url_for('main.load_add_payment_receive_account_to_restaurant', restaurant_id=restaurant_id) }}"
+                                   class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
+                                    <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
+                                        <path d="M1 8h12.59l-5.3-5.29L9 1l7 7-7 7-1.71-1.71L13.59 8H1z"></path>
+                                    </svg>
+                                    <span class="ml-2">{{ _('Configure payment receive account') }}</span>
+                                </a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
 

@@ -70,3 +70,4 @@ from . import product_controller
 from . import product_variant_controller
 from . import section_controller
 from . import delivery_method_controller
+from . import payment_receive_account_controller
