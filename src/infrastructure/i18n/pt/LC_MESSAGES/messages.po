@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-04-14 20:20-0300\n"
+"POT-Creation-Date: 2024-04-16 18:51-0300\n"
 "PO-Revision-Date: 2023-12-25 11:22-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
@@ -86,6 +86,10 @@ msgstr ""
 
 #: src/infrastructure/common/message_mapper.py:79
 msgid "Invalid restaurant id"
+msgstr ""
+
+#: src/infrastructure/common/message_mapper.py:81
+msgid "Payment receive account already exists"
 msgstr ""
 
 #: src/restaurant_hub/application/controller/sign_in_controller.py:25

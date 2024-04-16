@@ -77,5 +77,7 @@ class MessageMapper:
             return gettext('Delivery type already exists')
         elif key == 'invalid_restaurant_id':
             return gettext('Invalid restaurant id')
+        elif key == 'unique_payment_receive_account':
+            return gettext('Payment receive account already exists')
         else:
             raise ValueError(f'Unknown key: {key}')
